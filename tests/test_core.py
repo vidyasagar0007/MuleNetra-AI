@@ -73,7 +73,7 @@ def test_feature_engineering(sample_dataset):
 def test_ml_model_engine(sample_dataset):
     """Test XGBoost and baseline ML model training, prediction, and metric computation."""
     engine = MLModelEngine()
-    results = engine.train_and_evaluate(sample_dataset)
+    results = engine.train_and_evaluate(sample_dataset, save_artifacts=False)
     
     assert "champion_xgboost" in results
     assert "baseline_logistic_regression" in results
@@ -92,7 +92,7 @@ def test_ml_model_engine(sample_dataset):
 def test_pytorch_deep_learning_engine(sample_dataset):
     """Test compact PyTorch neural net architecture and inference."""
     dl_engine = DeepLearningEngine()
-    results = dl_engine.train_and_evaluate(sample_dataset)
+    results = dl_engine.train_and_evaluate(sample_dataset, save_artifacts=False)
     
     assert "f1_score" in results
     assert "roc_auc" in results

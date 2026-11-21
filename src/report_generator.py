@@ -51,7 +51,7 @@ class ReportGenerator:
         transactions: pd.DataFrame
     ) -> Path:
         """
-        Builds a comprehensive, courtroom-ready forensic PDF investigation report.
+        Builds a comprehensive forensic PDF investigation research dossier.
         """
         timestamp_str = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
         report_filename = f"MuleTrace_Forensic_Report_{account_id}_{timestamp_str}.pdf"

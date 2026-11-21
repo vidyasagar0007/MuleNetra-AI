@@ -67,7 +67,7 @@ def test_feature_engineering_dimensions(backend_dataset):
 def test_ml_models_and_shap(backend_dataset):
     """Verify baseline models, champion XGBoost, and SHAP explainability generation."""
     ml_engine = MLModelEngine()
-    results = ml_engine.train_and_evaluate(backend_dataset)
+    results = ml_engine.train_and_evaluate(backend_dataset, save_artifacts=False)
     
     assert "baseline_logistic_regression" in results
     assert "baseline_random_forest" in results
@@ -92,7 +92,7 @@ def test_ml_models_and_shap(backend_dataset):
 def test_pytorch_deep_learning_network(backend_dataset):
     """Verify PyTorch compact RiskNet forward pass, training, and probability bounds."""
     dl_engine = DeepLearningEngine()
-    results = dl_engine.train_and_evaluate(backend_dataset)
+    results = dl_engine.train_and_evaluate(backend_dataset, save_artifacts=False)
     
     assert "f1_score" in results
     assert "roc_auc" in results

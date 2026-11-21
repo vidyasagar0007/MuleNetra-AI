@@ -157,7 +157,7 @@ def render_reports(context: dict):
                 "out_degree": int(acc_info["out_degree"])
             },
             "suspicious_indicators": json.loads(acc_info["flagged_indicators"]) if isinstance(acc_info["flagged_indicators"], str) else acc_info["flagged_indicators"],
-            "legal_disclaimer": "Research prototype generated payload. Not an official legal declaration."
+            "legal_disclaimer": "Academic research prototype sample export. Not an officially filed regulatory declaration. Risk scores indicate behavioral anomalies requiring human investigator review."
         }
 
         sar_json_str = json.dumps(sar_payload, indent=2)

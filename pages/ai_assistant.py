@@ -1,7 +1,7 @@
 """
 MuleTrace AI - GenAI Investigation Assistant View
 Generates natural language forensic briefs, hypothesis formulations,
-and instant courtroom-grade PDF dossiers.
+and instant forensic research PDF dossiers.
 """
 
 import streamlit as st
@@ -127,9 +127,9 @@ def render_ai_assistant(context: dict):
     with dcol1:
         st.markdown("""
             <div style="background-color: #131D31; border: 1px solid #1E293B; border-radius: 8px; padding: 1.25rem;">
-                <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: #F8FAFC;">Courtroom & SAR-Ready PDF Dossier</h4>
+                <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: #F8FAFC;">Formal Forensic Research PDF Dossier</h4>
                 <p style="font-size: 0.8rem; color: #94A3B8; margin-bottom: 1rem;">
-                    Compile an official cryptographic forensic dossier complete with chain-of-custody metadata, tables, and officer sign-off lines.
+                    Compile an audit-grade forensic dossier complete with simulated chain-of-custody metadata, tables, and compliance sign-off lines.
                 </p>
         """, unsafe_allow_html=True)
 

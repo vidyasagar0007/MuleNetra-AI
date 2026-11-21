@@ -47,7 +47,7 @@ class MLModelEngine:
         self.feature_names = FEATURE_COLUMNS
         self.is_trained = False
 
-    def train_and_evaluate(self, df: pd.DataFrame) -> Dict[str, Any]:
+    def train_and_evaluate(self, df: pd.DataFrame, save_artifacts: bool = True) -> Dict[str, Any]:
         """
         Train ML models using chronological train-test split to prevent data leakage.
         Sequential features are computed strictly ordered by timestamp, ensuring
@@ -123,7 +123,7 @@ class MLModelEngine:
             roc_auc = float(roc_auc_score(y_true, y_prob)) if has_pos and len(np.unique(y_true)) > 1 else 0.5
             pr_auc = float(average_precision_score(y_true, y_prob)) if has_pos else 0.0
 
-            thresholds = [0.10, 0.20, 0.35, 0.50, 0.70, 0.85]
+            thresholds = [0.10, 0.20, 0.35, 0.50, 0.70, 0.80]
             th_results = {}
             for th in thresholds:
                 preds = (y_prob >= th).astype(int)
@@ -194,7 +194,8 @@ class MLModelEngine:
         }
 
         self.is_trained = True
-        self.save_model()
+        if save_artifacts:
+            self.save_model()
         return self.evaluation_results
 
     def get_feature_importances(self) -> Dict[str, float]:
