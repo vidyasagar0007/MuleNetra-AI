@@ -11,34 +11,49 @@ from config import REPORTS_DIR
 from src.report_generator import ReportGenerator
 
 def render_reports(context: dict):
-    """Render the Reports and Exports view."""
+    """Render the Reports and Exports center."""
     scored_tx = context["scored_tx"]
     profiles = context["profiles"]
     clusters = context["clusters"]
     
+    # Header Banner
     st.markdown("""
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; border-bottom: 1px solid #23334B; padding-bottom: 1.25rem;">
             <div>
-                <h1 style="font-size: 1.6rem; font-weight: 800; color: #F8FAFC; margin: 0; letter-spacing: -0.02em;">
-                    Forensic Reports & Data Export Center
-                </h1>
-                <p style="font-size: 0.85rem; color: #94A3B8; margin-top: 0.2rem;">
+                <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem;">
+                    <span style="font-size: 1.2rem;">📑</span>
+                    <h1 style="font-size: 1.65rem; font-weight: 800; color: #F8FAFC; margin: 0; letter-spacing: -0.025em; font-family: 'Manrope', sans-serif;">
+                        Reports & Compliance Export Center
+                    </h1>
+                </div>
+                <p style="font-size: 0.85rem; color: #94A3B8; margin: 0; font-family: 'Inter', sans-serif;">
                     Export verified surveillance records, download PDF forensic dossiers, and format automated SAR filing packages.
                 </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span class="badge badge-low" style="font-size: 0.72rem; padding: 0.35rem 0.75rem;">
+                    ● AUDITED EXTRACTIONS
+                </span>
+                <span class="badge badge-medium" style="font-size: 0.72rem; padding: 0.35rem 0.75rem;">
+                    FINCEN / FIU READY
+                </span>
             </div>
         </div>
     """, unsafe_allow_html=True)
 
     # 1. Bulk CSV Downloads Row
-    st.markdown("<h4 style='color: #F8FAFC; font-size: 1rem; margin-bottom: 0.75rem;'>Surveillance Telemetry CSV Exports</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='color: #F8FAFC; font-size: 1rem; margin-bottom: 0.75rem; font-family: \"Manrope\", sans-serif;'>Surveillance Telemetry CSV Exports</h4>", unsafe_allow_html=True)
 
     ecol1, ecol2, ecol3 = st.columns(3)
 
     with ecol1:
         st.markdown("""
-            <div class="mt-card">
-                <h5 style="margin: 0; color: #38BDF8; font-size: 0.95rem;">Scored Transactions</h5>
-                <p style="font-size: 0.78rem; color: #94A3B8; margin: 0.3rem 0 0.8rem 0;">
+            <div class="mt-card" style="border-top: 3px solid #4C8DFF;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h5 style="margin: 0; color: #4C8DFF; font-size: 0.95rem; font-family: 'Manrope', sans-serif;">Scored Transactions</h5>
+                    <span class="badge badge-medium" style="font-size: 0.65rem;">CSV FORMAT</span>
+                </div>
+                <p style="font-size: 0.78rem; color: #94A3B8; margin: 0.4rem 0 0.9rem 0; font-family: 'Inter', sans-serif;">
                     Complete transaction stream with ML, DL, and Hybrid calibrated risk scores.
                 </p>
         """, unsafe_allow_html=True)
@@ -48,15 +63,19 @@ def render_reports(context: dict):
             data=csv_tx,
             file_name="MuleTrace_Scored_Transactions.csv",
             mime="text/csv",
-            key="dl_tx_csv"
+            key="dl_tx_csv",
+            use_container_width=True
         )
         st.markdown("</div>", unsafe_allow_html=True)
 
     with ecol2:
         st.markdown("""
-            <div class="mt-card">
-                <h5 style="margin: 0; color: #818CF8; font-size: 0.95rem;">Account Risk Profiles</h5>
-                <p style="font-size: 0.78rem; color: #94A3B8; margin: 0.3rem 0 0.8rem 0;">
+            <div class="mt-card" style="border-top: 3px solid #9270FF;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h5 style="margin: 0; color: #9270FF; font-size: 0.95rem; font-family: 'Manrope', sans-serif;">Account Risk Profiles</h5>
+                    <span class="badge badge-violet" style="font-size: 0.65rem;">CSV FORMAT</span>
+                </div>
+                <p style="font-size: 0.78rem; color: #94A3B8; margin: 0.4rem 0 0.9rem 0; font-family: 'Inter', sans-serif;">
                     Account-level risk indices, mule roles, counterparties, and triggered heuristics.
                 </p>
         """, unsafe_allow_html=True)
@@ -66,15 +85,19 @@ def render_reports(context: dict):
             data=csv_acc,
             file_name="MuleTrace_Account_Risk_Profiles.csv",
             mime="text/csv",
-            key="dl_acc_csv"
+            key="dl_acc_csv",
+            use_container_width=True
         )
         st.markdown("</div>", unsafe_allow_html=True)
 
     with ecol3:
         st.markdown("""
-            <div class="mt-card">
-                <h5 style="margin: 0; color: #F59E0B; font-size: 0.95rem;">Suspicious Network Clusters</h5>
-                <p style="font-size: 0.78rem; color: #94A3B8; margin: 0.3rem 0 0.8rem 0;">
+            <div class="mt-card" style="border-top: 3px solid #F5B942;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h5 style="margin: 0; color: #F59E0B; font-size: 0.95rem; font-family: 'Manrope', sans-serif;">Suspicious Clusters</h5>
+                    <span class="badge badge-warning" style="font-size: 0.65rem;">CSV FORMAT</span>
+                </div>
+                <p style="font-size: 0.78rem; color: #94A3B8; margin: 0.4rem 0 0.9rem 0; font-family: 'Inter', sans-serif;">
                     Flagged graph subgraphs, multi-node loops, and community structures.
                 </p>
         """, unsafe_allow_html=True)
@@ -86,19 +109,21 @@ def render_reports(context: dict):
                 data=csv_cl,
                 file_name="MuleTrace_Network_Clusters.csv",
                 mime="text/csv",
-                key="dl_cl_csv"
+                key="dl_cl_csv",
+                use_container_width=True
             )
         else:
-            st.button("No Clusters to Export", disabled=True)
+            st.button("No Clusters to Export", disabled=True, use_container_width=True)
         st.markdown("</div>", unsafe_allow_html=True)
 
-    st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='height: 12px;'></div>", unsafe_allow_html=True)
 
     # 2. Existing Generated PDF Dossiers in repository
-    st.markdown("<h4 style='color: #F8FAFC; font-size: 1rem; margin-bottom: 0.75rem;'>Generated PDF Forensic Dossiers Repository</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='color: #F8FAFC; font-size: 1rem; margin-bottom: 0.75rem; font-family: \"Manrope\", sans-serif;'>Generated PDF Forensic Dossiers Repository</h4>", unsafe_allow_html=True)
 
     pdf_files = list(REPORTS_DIR.glob("*.pdf"))
     if pdf_files:
+        st.markdown("""<div class="mt-card" style="margin-bottom: 1.25rem;">""", unsafe_allow_html=True)
         pdf_rows = []
         for p in pdf_files:
             pdf_rows.append({
@@ -114,22 +139,26 @@ def render_reports(context: dict):
         chosen_pdf_path = REPORTS_DIR / selected_pdf_name
         with open(chosen_pdf_path, "rb") as f:
             st.download_button(
-                label=f"⬇️ Download {selected_pdf_name}",
+                label=f"⬇️ Download Selected Dossier ({selected_pdf_name})",
                 data=f.read(),
                 file_name=selected_pdf_name,
                 mime="application/pdf",
                 key="btn_dl_existing_pdf"
             )
+        st.markdown("</div>", unsafe_allow_html=True)
     else:
-        st.info("No PDF dossiers have been compiled yet. Visit the 'GenAI Assistant' to compile your first report.")
-
-    st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
+        st.info("No PDF dossiers have been compiled yet. Visit the 'AI Assistant' to compile your first report.")
 
     # 3. Automated Regulatory SAR Package Generation
     st.markdown("""
-        <div style="background-color: #131D31; border: 1px solid #1E293B; border-radius: 8px; padding: 1.25rem;">
-            <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: #F8FAFC;">Automated Regulatory SAR (Suspicious Activity Report) Generator</h4>
-            <p style="font-size: 0.8rem; color: #94A3B8; margin-bottom: 1rem;">
+        <div class="mt-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                <h4 style="margin: 0; font-size: 1rem; color: #F8FAFC; font-family: 'Manrope', sans-serif;">
+                    Automated Regulatory SAR (Suspicious Activity Report) Generator
+                </h4>
+                <span class="badge badge-critical" style="font-size: 0.68rem;">FINCEN COMPLIANCE</span>
+            </div>
+            <p style="font-size: 0.8rem; color: #94A3B8; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">
                 Standardized machine-readable FinCEN / FIU XML-JSON regulatory package for high-risk accounts.
             </p>
     """, unsafe_allow_html=True)

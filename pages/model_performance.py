@@ -16,19 +16,26 @@ def render_model_performance(context: dict):
     ml_engine = context["risk_engine"].ml_engine
     dl_engine = context["risk_engine"].dl_engine
     
+    # Header Banner
     st.markdown("""
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; border-bottom: 1px solid #23334B; padding-bottom: 1.25rem;">
             <div>
-                <h1 style="font-size: 1.6rem; font-weight: 800; color: #F8FAFC; margin: 0; letter-spacing: -0.02em;">
-                    AI & Deep Learning Model Benchmarking
-                </h1>
-                <p style="font-size: 0.85rem; color: #94A3B8; margin-top: 0.2rem;">
+                <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem;">
+                    <span style="font-size: 1.2rem;">📈</span>
+                    <h1 style="font-size: 1.65rem; font-weight: 800; color: #F8FAFC; margin: 0; letter-spacing: -0.025em; font-family: 'Manrope', sans-serif;">
+                        AI & Deep Learning Model Benchmarking
+                    </h1>
+                </div>
+                <p style="font-size: 0.85rem; color: #94A3B8; margin: 0; font-family: 'Inter', sans-serif;">
                     Rigorous chronological out-of-time evaluation, false-positive rate control, and multi-threshold operational matrices.
                 </p>
             </div>
-            <div>
-                <span class="badge badge-low" style="font-size: 0.75rem; padding: 0.35rem 0.75rem;">
-                    ● AUDITED ZERO-LEAKAGE BENCHMARKS
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span class="badge badge-low" style="font-size: 0.72rem; padding: 0.35rem 0.75rem;">
+                    ● ZERO-LEAKAGE AUDITED
+                </span>
+                <span class="badge badge-violet" style="font-size: 0.72rem; padding: 0.35rem 0.75rem;">
+                    SHAP ATTRIBUTION
                 </span>
             </div>
         </div>
@@ -36,14 +43,16 @@ def render_model_performance(context: dict):
 
     # 1. Methodology Notice Box
     st.markdown("""
-        <div class="mt-card" style="border-left: 3px solid #38BDF8;">
-            <div style="display: flex; gap: 0.75rem; align-items: center;">
+        <div class="mt-card" style="border-left: 3px solid #4C8DFF; margin-bottom: 1.25rem;">
+            <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
                 <span style="font-size: 1.2rem;">🔒</span>
                 <div>
-                    <h5 style="margin: 0; color: #F8FAFC; font-size: 0.92rem;">Leakage-Safe Chronological Out-of-Time Protocol</h5>
-                    <p style="margin: 0.2rem 0 0 0; font-size: 0.8rem; color: #94A3B8;">
+                    <h5 style="margin: 0; color: #F8FAFC; font-size: 0.92rem; font-family: 'Manrope', sans-serif;">
+                        Leakage-Safe Chronological Out-of-Time Protocol
+                    </h5>
+                    <p style="margin: 0.25rem 0 0 0; font-size: 0.8rem; color: #94A3B8; font-family: 'Inter', sans-serif; line-height: 1.45;">
                         Evaluated strictly on an unseen chronological test split (first 80% time window for training, subsequent 20% for testing).
-                        Class imbalance was handled using scale_pos_weight for XGBoost and pos_weight for PyTorch BCEWithLogitsLoss.
+                        Class imbalance was handled using <code style="color: #4C8DFF;">scale_pos_weight</code> for XGBoost and <code style="color: #4C8DFF;">pos_weight</code> for PyTorch BCEWithLogitsLoss.
                     </p>
                 </div>
             </div>
@@ -60,7 +69,15 @@ def render_model_performance(context: dict):
     pytorch_metrics = dl_eval if dl_eval else {}
 
     # 2. Comparative Benchmark Table (Threshold 0.50)
-    st.markdown("<h4 style='color: #F8FAFC; font-size: 1rem; margin: 1rem 0 0.5rem 0;'>Standard Comparative Benchmark (Default Threshold = 0.50)</h4>", unsafe_allow_html=True)
+    st.markdown("""
+        <div class="mt-card" style="margin-bottom: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <h4 style="margin: 0; font-size: 1rem; color: #F8FAFC; font-family: 'Manrope', sans-serif;">
+                    Standard Comparative Benchmark (Default Threshold = 0.50)
+                </h4>
+                <span class="badge badge-medium" style="font-size: 0.68rem;">HOLDOUT TEST EVALUATION</span>
+            </div>
+    """, unsafe_allow_html=True)
 
     rows = [
         {
@@ -109,25 +126,29 @@ def render_model_performance(context: dict):
 
     # Operational Insight Box: Champion Selection & Threshold Rationale
     st.markdown("""
-        <div style="background-color: #0A0E17; border: 1px solid #1E293B; border-radius: 6px; padding: 0.85rem 1rem; margin-top: 0.5rem; font-size: 0.8rem; color: #94A3B8;">
-            <b style="color: #38BDF8;">Operational Selection Rationale (Why XGBoost is Champion over Logistic Regression):</b><br/>
+        <div style="background-color: #0D1423; border: 1px solid #23334B; border-radius: 6px; padding: 0.85rem 1rem; margin-top: 0.75rem; font-size: 0.8rem; color: #94A3B8; font-family: 'Inter', sans-serif;">
+            <b style="color: #4C8DFF;">Operational Selection Rationale (Why XGBoost is Champion over Logistic Regression):</b><br/>
             At the arbitrary 0.50 cutoff, Logistic Regression exhibits a marginally higher F1 (0.9367 vs 0.9333) due to high recall (92.5%), but incurs <b>2 false alarms</b> (FPR = 0.00106).
             In production AML compliance where false positive investigation costs are critical:
-            <ul style="margin: 0.3rem 0 0 1rem; padding: 0;">
+            <ul style="margin: 0.35rem 0 0 1rem; padding: 0; line-height: 1.5;">
                 <li><b>PR-AUC Superiority:</b> XGBoost achieves <b>0.9959</b> PR-AUC vs Logistic Regression's <b>0.9536</b>.</li>
                 <li><b>Zero False Alarm Guarantee:</b> At threshold 0.50 and 0.80, XGBoost achieves <b>0.00000 FPR</b> (zero false alarms across 1,878 benign transactions).</li>
                 <li><b>Threshold Tunability:</b> When calibrated to operational cutoff 0.20, XGBoost achieves <b>95.0% Recall</b> and <b>100.0% Precision</b> (F1 = <b>0.9744</b>, 0 false alarms).</li>
             </ul>
         </div>
+        </div>
     """, unsafe_allow_html=True)
-
-    st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
 
     # 3. Multi-Threshold Operational Alert Performance Table
     st.markdown("""
-        <div style="background-color: #131D31; border: 1px solid #1E293B; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem;">
-            <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: #F8FAFC;">Multi-Threshold Operational Performance (XGBoost Champion)</h4>
-            <p style="font-size: 0.8rem; color: #94A3B8; margin-bottom: 0.8rem;">
+        <div class="mt-card" style="margin-bottom: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <h4 style="margin: 0; font-size: 1rem; color: #F8FAFC; font-family: 'Manrope', sans-serif;">
+                    Multi-Threshold Operational Performance (XGBoost Champion)
+                </h4>
+                <span class="badge badge-warning" style="font-size: 0.68rem;">QUEUE SENSITIVITY</span>
+            </div>
+            <p style="font-size: 0.8rem; color: #94A3B8; margin-bottom: 0.8rem; font-family: 'Inter', sans-serif;">
                 Comparing compliance queue trade-offs between false-positive rate (FPR) and recall across operational decision boundaries.
             </p>
     """, unsafe_allow_html=True)
@@ -154,8 +175,10 @@ def render_model_performance(context: dict):
 
     with mcol1:
         st.markdown("""
-            <div style="background-color: #131D31; border: 1px solid #1E293B; border-radius: 8px; padding: 1.1rem 1.25rem;">
-                <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: #F8FAFC;">Test Split Confusion Matrix (XGBoost)</h4>
+            <div class="mt-card" style="margin-bottom: 1.25rem;">
+                <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: #F8FAFC; font-family: 'Manrope', sans-serif;">
+                    Test Split Confusion Matrix (XGBoost)
+                </h4>
         """, unsafe_allow_html=True)
 
         cm = xgb_metrics.get("confusion_matrix", [[1878, 0], [5, 35]])
@@ -165,15 +188,15 @@ def render_model_performance(context: dict):
             z=cm_matrix,
             x=["Predicted Benign", "Predicted Flagged"],
             y=["Actual Benign", "Actual Flagged"],
-            colorscale=[[0, "#0F172A"], [0.5, "#1E293B"], [1.0, "#38BDF8"]],
+            colorscale=[[0, "#0D1423"], [0.5, "#1E2E4A"], [1.0, "#4C8DFF"]],
             text=cm_matrix,
             texttemplate="%{text}",
             textfont=dict(size=14, color="#FFFFFF", family="JetBrains Mono"),
             showscale=False
         ))
         fig_cm.update_layout(
-            paper_bgcolor="#131D31",
-            plot_bgcolor="#131D31",
+            paper_bgcolor="#121C2E",
+            plot_bgcolor="#121C2E",
             font=dict(color="#94A3B8", family="Inter"),
             margin=dict(l=20, r=20, t=20, b=20),
             height=280
@@ -182,32 +205,42 @@ def render_model_performance(context: dict):
         st.markdown("</div>", unsafe_allow_html=True)
 
     with mcol2:
+        st.markdown("""
+            <div class="mt-card" style="margin-bottom: 1.25rem;">
+                <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: #F8FAFC; font-family: 'Manrope', sans-serif;">
+                    SHAP Global Feature Importance
+                </h4>
+        """, unsafe_allow_html=True)
         shap_dict = ml_eval.get("shap_feature_importance", ml_eval.get("feature_importance", {}))
         exp = ExplainabilityEngine(shap_feature_importances=shap_dict)
         fig_fi = exp.plot_global_shap_importance(top_n=8)
         st.plotly_chart(fig_fi, use_container_width=True)
-
-    st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
 
     # 5. Multi-Modal Risk Fusion Architecture Resolution
     st.markdown("""
-        <div style="background-color: #131D31; border: 1px solid #1E293B; border-radius: 8px; padding: 1.25rem;">
-            <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #F8FAFC;">Audited Multi-Modal Risk Fusion Architecture</h4>
-            <p style="font-size: 0.85rem; color: #94A3B8; margin-bottom: 0.75rem;">
+        <div class="mt-card">
+            <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #F8FAFC; font-family: 'Manrope', sans-serif;">
+                Audited Multi-Modal Risk Fusion Architecture
+            </h4>
+            <p style="font-size: 0.85rem; color: #94A3B8; margin-bottom: 0.75rem; font-family: 'Inter', sans-serif;">
                 MuleTrace AI resolves single-model biases by utilizing a mathematically calibrated, late-fusion ensemble:
             </p>
-            <div style="background-color: #0A0E17; border: 1px solid #1E293B; border-radius: 6px; padding: 0.75rem 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #38BDF8;">
+            <div style="background-color: #080D18; border: 1px solid #23334B; border-radius: 6px; padding: 0.85rem 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.92rem; color: #4C8DFF; text-align: center;">
                 R_hybrid = (0.40 × P_TreeEnsemble) + (0.30 × P_PyTorchNet) + (0.30 × G_TopologyAnomaly)
             </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; font-size: 0.8rem; color: #94A3B8;">
-                <div>
-                    <b style="color: #F8FAFC;">40% Calibrated Tree Ensemble:</b> Blends 60% XGBoost (boosting on velocity/structuring thresholds) + 40% Random Forest (bagging for variance reduction and FPR control).
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; font-size: 0.8rem; color: #94A3B8; font-family: 'Inter', sans-serif;">
+                <div style="background-color: #0D1423; border: 1px solid #23334B; border-radius: 6px; padding: 0.85rem;">
+                    <b style="color: #4C8DFF;">40% Calibrated Tree Ensemble:</b><br/>
+                    Blends 60% XGBoost (boosting on velocity/structuring thresholds) + 40% Random Forest (bagging for variance reduction and FPR control).
                 </div>
-                <div>
-                    <b style="color: #F8FAFC;">30% PyTorch Deep RiskNet:</b> Compact neural representation network trained with weighted binary cross-entropy, isolating non-linear embeddings resistant to threshold manipulation.
+                <div style="background-color: #0D1423; border: 1px solid #23334B; border-radius: 6px; padding: 0.85rem;">
+                    <b style="color: #9270FF;">30% PyTorch Deep RiskNet:</b><br/>
+                    Compact neural representation network trained with weighted binary cross-entropy, isolating non-linear embeddings resistant to threshold manipulation.
                 </div>
-                <div>
-                    <b style="color: #F8FAFC;">30% Graph Centrality Engine:</b> NetworkX directed topology engine calculating in/out flow velocity ratios, PageRank, and detecting multi-hop circular wash loops.
+                <div style="background-color: #0D1423; border: 1px solid #23334B; border-radius: 6px; padding: 0.85rem;">
+                    <b style="color: #27D69B;">30% Graph Centrality Engine:</b><br/>
+                    NetworkX directed topology engine calculating in/out flow velocity ratios, PageRank, and detecting multi-hop circular wash loops.
                 </div>
             </div>
         </div>

@@ -70,81 +70,113 @@ def get_initialized_intelligence():
 def main():
     # Sidebar Branding & Navigation
     with st.sidebar:
-        # Logo SVG rendering
+        # Logo SVG rendering with base64 encoding to prevent markdown parser leaks
         logo_path = ASSETS_DIR / "logo.svg"
         if logo_path.exists():
             with open(logo_path, "rb") as f:
                 svg_b64 = base64.b64encode(f.read()).decode("utf-8")
-            st.markdown(f'<div style="margin-bottom: 0.5rem;"><img src="data:image/svg+xml;base64,{svg_b64}" style="width: 100%; max-width: 250px; display: block;" alt="MuleTrace AI" /></div>', unsafe_allow_html=True)
+            st.markdown(
+                f'''<div style="margin-bottom: 0.75rem; padding-top: 0.25rem;">
+                    <img src="data:image/svg+xml;base64,{svg_b64}" style="width: 100%; max-width: 260px; display: block;" alt="MuleTrace AI" />
+                </div>''',
+                unsafe_allow_html=True
+            )
         else:
             st.markdown(f"### 🛡️ {APP_TITLE}")
+            st.markdown(f"<p style='color: #94A3B8; font-size: 0.75rem;'>{APP_SUBTITLE}</p>", unsafe_allow_html=True)
 
         st.markdown(f"""
-            <div style="font-size: 0.72rem; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.2rem; border-bottom: 1px solid #1E293B; padding-bottom: 0.5rem;">
-                {ACADEMIC_TAG} • v{APP_VERSION}
+            <div style="font-size: 0.7rem; color: #64748B; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.25rem; border-bottom: 1px solid #23334B; padding-bottom: 0.6rem; display: flex; justify-content: space-between; align-items: center;">
+                <span>SURVEILLANCE SUITE</span>
+                <span style="color: #4C8DFF; font-family: 'JetBrains Mono', monospace;">v{APP_VERSION}</span>
             </div>
         """, unsafe_allow_html=True)
 
-        # Primary Navigation Selector
+        # Primary Navigation Selector with Polished Icons
         nav_options = [
-            "Executive Dashboard",
-            "AI Detection Engine",
-            "Mule Network Intelligence",
-            "Account Investigation",
-            "GenAI Assistant",
-            "Reports & Exports",
-            "Model Performance"
+            "📊 Executive Dashboard",
+            "⚡ AI Detection Center",
+            "🕸️ Network Intelligence",
+            "🔍 Account Investigation",
+            "🤖 AI Investigation Assistant",
+            "📑 Reports & Exports",
+            "📈 Model Performance"
         ]
 
-        # Use radio for clean navigation
         selected_page = st.radio(
-            "SURVEILLANCE MODULES",
+            "INTELLIGENCE MODULES",
             nav_options,
             index=0,
             label_visibility="visible"
         )
 
-        st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+        st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
 
-        # Telemetry & System Status Sidebar Box
+        # System Status & Telemetry Card
         st.markdown("""
-            <div style="background-color: #0A0E17; border: 1px solid #1E293B; border-radius: 6px; padding: 0.85rem; font-size: 0.78rem;">
-                <div style="color: #94A3B8; text-transform: uppercase; font-size: 0.68rem; margin-bottom: 0.4rem; font-weight: 600;">Engine Health</div>
-                <div style="color: #10B981; font-weight: 600;">● Online • Zero-Leakage Mode</div>
-                <div style="color: #64748B; margin-top: 0.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;">
-                    XGBoost v3.2<br/>
-                    PyTorch v2.15 CPU<br/>
-                    NetworkX DiGraph
+            <div style="background-color: #121C2E; border: 1px solid #23334B; border-radius: 8px; padding: 0.95rem; font-size: 0.78rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <span style="color: #94A3B8; text-transform: uppercase; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em;">Engine Health</span>
+                    <span class="badge badge-low" style="font-size: 0.64rem; padding: 0.15rem 0.45rem;">ONLINE</span>
+                </div>
+                <div style="color: #27D69B; font-weight: 600; font-size: 0.8rem; margin-bottom: 0.4rem;">
+                    ● Active Surveillance • Zero-Leakage
+                </div>
+                <div style="color: #64748B; border-top: 1px solid #162238; padding-top: 0.45rem; margin-top: 0.45rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; line-height: 1.5;">
+                    <span style="color: #94A3B8;">ML:</span> XGBoost v3.2 Champion<br/>
+                    <span style="color: #94A3B8;">DL:</span> PyTorch Compact RiskNet<br/>
+                    <span style="color: #94A3B8;">Graph:</span> NetworkX Directed Topology
                 </div>
             </div>
         """, unsafe_allow_html=True)
 
         st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
 
+        # Dataset & Environment Telemetry Card
+        st.markdown("""
+            <div style="background-color: #0D1423; border: 1px solid #23334B; border-radius: 6px; padding: 0.75rem 0.85rem; font-size: 0.72rem; color: #64748B;">
+                <div style="color: #94A3B8; font-weight: 600; margin-bottom: 0.25rem;">ENVIRONMENT TELEMETRY</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #94A3B8;">
+                    • 10,000 Synthetic Txns<br/>
+                    • 1,000 Banking Node Graph<br/>
+                    • SQLite Local DB Persistence
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("<div style='height: 12px;'></div>", unsafe_allow_html=True)
+
         # Dataset Reset Action
-        if st.button("🔄 Regenerate Dataset & Retrain", key="btn_reset_data"):
+        if st.button("🔄 Regenerate Dataset & Retrain", key="btn_reset_data", use_container_width=True):
             with st.spinner("Regenerating AML patterns and retraining models..."):
                 st.cache_resource.clear()
                 get_or_create_dataset(force_regenerate=True)
                 st.rerun()
 
+        st.markdown(f"""
+            <div style="text-align: center; margin-top: 1.2rem; font-size: 0.68rem; color: #475569; font-family: 'Inter', sans-serif;">
+                {ACADEMIC_TAG} • Institutional Build<br/>
+                For Forensic Research & Educational Defense
+            </div>
+        """, unsafe_allow_html=True)
+
     # Load Intelligence Context
     context = get_initialized_intelligence()
 
-    # Route Page
-    if selected_page == "Executive Dashboard":
+    # Route Page cleanly based on substring
+    if "Executive Dashboard" in selected_page:
         render_dashboard(context)
-    elif selected_page == "AI Detection Engine":
+    elif "Detection" in selected_page:
         render_detection(context)
-    elif selected_page == "Mule Network Intelligence":
+    elif "Network Intelligence" in selected_page:
         render_network_analysis(context)
-    elif selected_page == "Account Investigation":
+    elif "Account Investigation" in selected_page:
         render_account_investigation(context)
-    elif selected_page == "GenAI Assistant":
+    elif "Assistant" in selected_page:
         render_ai_assistant(context)
-    elif selected_page == "Reports & Exports":
+    elif "Reports" in selected_page:
         render_reports(context)
-    elif selected_page == "Model Performance":
+    elif "Model Performance" in selected_page:
         render_model_performance(context)
 
 if __name__ == "__main__":

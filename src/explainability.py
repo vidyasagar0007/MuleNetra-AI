@@ -56,25 +56,25 @@ class ExplainabilityEngine:
             orientation="h",
             marker=dict(
                 color=values,
-                colorscale=[[0, "#38BDF8"], [0.5, "#6366F1"], [1.0, "#A855F7"]],
-                line=dict(color="#0F172A", width=1)
+                colorscale=[[0, "#4C8DFF"], [0.5, "#9270FF"], [1.0, "#FF5B6E"]],
+                line=dict(color="#080D18", width=1)
             )
         ))
 
         fig.update_layout(
             title=dict(
                 text="<b>Global AI Risk Drivers (Mean |SHAP| Attribution)</b>",
-                font=dict(color="#F8FAFC", size=13, family="Inter")
+                font=dict(color="#F8FAFC", size=13, family="Manrope")
             ),
             xaxis=dict(
                 title="Mean |SHAP Value| (Impact on Model Log-Odds)",
                 color="#94A3B8",
-                gridcolor="#1E293B",
+                gridcolor="#162238",
                 zeroline=False
             ),
             yaxis=dict(color="#F8FAFC"),
-            paper_bgcolor="#0F172A",
-            plot_bgcolor="#0F172A",
+            paper_bgcolor="#121C2E",
+            plot_bgcolor="#121C2E",
             margin=dict(l=150, r=20, t=40, b=30),
             height=320
         )
@@ -160,21 +160,21 @@ class ExplainabilityEngine:
             textposition="outside",
             text=[f"{base:.2f}", f"+{ml:.2f}", f"+{dl:.2f}", f"+{gr:.2f}", f"{tot:.2f}"],
             y=[base, ml, dl, gr, 0],
-            connector={"line": {"color": "#334155"}},
-            decreasing={"marker": {"color": "#10B981"}},
-            increasing={"marker": {"color": "#F43F5E"}},
-            totals={"marker": {"color": "#38BDF8"}}
+            connector={"line": {"color": "#354B6E"}},
+            decreasing={"marker": {"color": "#27D69B"}},
+            increasing={"marker": {"color": "#FF5B6E"}},
+            totals={"marker": {"color": "#4C8DFF"}}
         ))
 
         fig.update_layout(
             title=dict(
                 text=f"<b>Risk Attribution Breakdown for {account_profile.get('account_id')}</b>",
-                font=dict(color="#F8FAFC", size=13, family="Inter")
+                font=dict(color="#F8FAFC", size=13, family="Manrope")
             ),
-            paper_bgcolor="#0F172A",
-            plot_bgcolor="#0F172A",
-            font=dict(color="#94A3B8"),
-            yaxis=dict(gridcolor="#1E293B", range=[0, 1.1]),
+            paper_bgcolor="#121C2E",
+            plot_bgcolor="#121C2E",
+            font=dict(color="#94A3B8", family="Inter"),
+            yaxis=dict(gridcolor="#162238", range=[0, 1.1]),
             margin=dict(l=30, r=30, t=50, b=30),
             height=280
         )

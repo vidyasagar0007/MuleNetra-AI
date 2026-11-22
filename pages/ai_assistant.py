@@ -19,21 +19,40 @@ def render_ai_assistant(context: dict):
     profiles = context["profiles"]
     graph_engine = context["graph_engine"]
     
+    # Header Banner
     st.markdown("""
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; border-bottom: 1px solid #23334B; padding-bottom: 1.25rem;">
             <div>
-                <h1 style="font-size: 1.6rem; font-weight: 800; color: #F8FAFC; margin: 0; letter-spacing: -0.02em;">
-                    GenAI Forensic Investigation Assistant
-                </h1>
-                <p style="font-size: 0.85rem; color: #94A3B8; margin-top: 0.2rem;">
-                    Automated, evidence-grounded intelligence briefing, hypothesis formulation, and SAR dossier compilation.
+                <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem;">
+                    <span style="font-size: 1.2rem;">🤖</span>
+                    <h1 style="font-size: 1.65rem; font-weight: 800; color: #F8FAFC; margin: 0; letter-spacing: -0.025em; font-family: 'Manrope', sans-serif;">
+                        GenAI Investigation Assistant
+                    </h1>
+                </div>
+                <p style="font-size: 0.85rem; color: #94A3B8; margin: 0; font-family: 'Inter', sans-serif;">
+                    Automated, evidence-grounded intelligence briefing, hypothesis formulation, and forensic research dossier compilation.
                 </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span class="badge badge-low" style="font-size: 0.72rem; padding: 0.35rem 0.75rem;">
+                    ● DETERMINISTIC FALLBACK
+                </span>
+                <span class="badge badge-violet" style="font-size: 0.72rem; padding: 0.35rem 0.75rem;">
+                    LLM / ZERO-HALLUCINATION
+                </span>
             </div>
         </div>
     """, unsafe_allow_html=True)
 
     # 1. Target Account & LLM Provider Setup
-    pcol1, pcol2 = st.columns([2, 1])
+    st.markdown("""
+        <div class="mt-card" style="padding: 1rem 1.25rem; margin-bottom: 1.25rem;">
+            <div style="font-size: 0.72rem; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.65rem;">
+                Forensic Audit Configuration
+            </div>
+    """, unsafe_allow_html=True)
+
+    pcol1, pcol2 = st.columns([2, 1.2])
 
     with pcol1:
         high_risk_accs = profiles[profiles["risk_score"] >= 0.35]["account_id"].tolist()
@@ -41,18 +60,20 @@ def render_ai_assistant(context: dict):
             high_risk_accs = profiles["account_id"].tolist()
             
         selected_account = st.selectbox(
-            "Select Account for AI Forensic Audit",
+            "Select Target Account for AI Forensic Audit",
             high_risk_accs,
             format_func=lambda acc: f"{acc} — Tier: {profiles[profiles['account_id']==acc]['risk_tier'].values[0]} ({profiles[profiles['account_id']==acc]['mule_role'].values[0]})"
         )
 
     with pcol2:
         provider_choice = st.selectbox(
-            "GenAI Engine / Provider",
+            "GenAI Inference Engine",
             ["Deterministic Offline Engine", "Local Ollama (Llama 3.2)", "Gemini API"],
             index=0
         )
         provider_key = "offline" if "Offline" in provider_choice else "ollama" if "Ollama" in provider_choice else "gemini"
+
+    st.markdown("</div>", unsafe_allow_html=True)
 
     # Fetch data for account
     account_row = profiles[profiles["account_id"] == selected_account].iloc[0]
@@ -68,7 +89,7 @@ def render_ai_assistant(context: dict):
     # Trigger Generation
     assistant = GenAIAssistant(provider=provider_key)
     
-    with st.spinner("Compiling multi-modal forensic evidence..."):
+    with st.spinner("Compiling multi-modal forensic evidence and synthesizing brief..."):
         brief = assistant.generate_investigation_brief(
             account_id=selected_account,
             account_meta=profile_dict,
@@ -76,20 +97,23 @@ def render_ai_assistant(context: dict):
             graph_data=g_meta
         )
 
-    st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
-
     # 2. Forensic Brief Display Cards
     st.markdown(f"""
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <span style="font-size: 0.82rem; color: #94A3B8;">AUDIT DOSSIER FOR <b style="color: #38BDF8;">{selected_account}</b></span>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="font-size: 0.82rem; color: #94A3B8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">AUDIT DOSSIER FOR</span>
+                <span class="account-id">{selected_account}</span>
+            </div>
             <span class="badge badge-medium" style="font-size: 0.72rem;">ENGINE: {brief.get('provider_used')}</span>
         </div>
     """, unsafe_allow_html=True)
 
     # Card 1: Executive Incident Summary
     st.markdown("""
-        <div class="mt-card" style="border-left: 3px solid #38BDF8;">
-            <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #38BDF8;">1. Executive Incident Summary</h4>
+        <div class="mt-card" style="border-left: 3px solid #4C8DFF; margin-bottom: 1rem;">
+            <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: #4C8DFF; font-family: 'Manrope', sans-serif;">
+                1. Executive Incident Summary
+            </h4>
     """, unsafe_allow_html=True)
     st.write(brief.get("executive_summary", ""))
     st.markdown("</div>", unsafe_allow_html=True)
@@ -98,43 +122,52 @@ def render_ai_assistant(context: dict):
     bcol1, bcol2 = st.columns(2)
     with bcol1:
         st.markdown("""
-            <div class="mt-card" style="border-left: 3px solid #6366F1; min-height: 220px;">
-                <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #818CF8;">2. Factual Forensic Observations</h4>
+            <div class="mt-card" style="border-left: 3px solid #9270FF; min-height: 230px; margin-bottom: 1rem;">
+                <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: #9270FF; font-family: 'Manrope', sans-serif;">
+                    2. Factual Forensic Observations
+                </h4>
         """, unsafe_allow_html=True)
         st.markdown(brief.get("factual_observations", ""))
         st.markdown("</div>", unsafe_allow_html=True)
 
     with bcol2:
         st.markdown("""
-            <div class="mt-card" style="border-left: 3px solid #A855F7; min-height: 220px;">
-                <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #C084FC;">3. Investigative Hypotheses & Topology</h4>
+            <div class="mt-card" style="border-left: 3px solid #F5B942; min-height: 230px; margin-bottom: 1rem;">
+                <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: #F5B942; font-family: 'Manrope', sans-serif;">
+                    3. Investigative Hypotheses & Topology
+                </h4>
         """, unsafe_allow_html=True)
         st.markdown(brief.get("hypotheses", ""))
         st.markdown("</div>", unsafe_allow_html=True)
 
     # Card 4: Recommended Actions
     st.markdown("""
-        <div class="mt-card" style="border-left: 3px solid #10B981;">
-            <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #34D399;">4. Recommended Compliance Actions (FIU Playbook)</h4>
+        <div class="mt-card" style="border-left: 3px solid #27D69B; margin-bottom: 1.25rem;">
+            <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: #27D69B; font-family: 'Manrope', sans-serif;">
+                4. Recommended Compliance Actions (FIU Playbook)
+            </h4>
     """, unsafe_allow_html=True)
     st.markdown(brief.get("recommended_actions", ""))
     st.markdown("</div>", unsafe_allow_html=True)
-
-    st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
 
     # 3. PDF Dossier Compilation & Download
     dcol1, dcol2 = st.columns([1.5, 1])
     with dcol1:
         st.markdown("""
-            <div style="background-color: #131D31; border: 1px solid #1E293B; border-radius: 8px; padding: 1.25rem;">
-                <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: #F8FAFC;">Formal Forensic Research PDF Dossier</h4>
-                <p style="font-size: 0.8rem; color: #94A3B8; margin-bottom: 1rem;">
+            <div class="mt-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                    <h4 style="margin: 0; font-size: 1rem; color: #F8FAFC; font-family: 'Manrope', sans-serif;">
+                        Formal Forensic Research PDF Dossier
+                    </h4>
+                    <span class="badge badge-medium" style="font-size: 0.68rem;">REPORTLAB 4.4</span>
+                </div>
+                <p style="font-size: 0.8rem; color: #94A3B8; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">
                     Compile an audit-grade forensic dossier complete with simulated chain-of-custody metadata, tables, and compliance sign-off lines.
                 </p>
         """, unsafe_allow_html=True)
 
         rep_gen = ReportGenerator()
-        if st.button("📄 Compile Official PDF Investigation Dossier", key="btn_pdf_gen"):
+        if st.button("📄 Compile Official PDF Investigation Dossier", key="btn_pdf_gen", use_container_width=True):
             with st.spinner("Compiling PDF with ReportLab..."):
                 pdf_path = rep_gen.generate_account_pdf_report(
                     account_id=selected_account,
@@ -146,19 +179,22 @@ def render_ai_assistant(context: dict):
                     pdf_bytes = f.read()
 
                 st.download_button(
-                    label="⬇️ Download PDF Dossier",
+                    label=f"⬇️ Download PDF Dossier ({pdf_path.name})",
                     data=pdf_bytes,
                     file_name=pdf_path.name,
                     mime="application/pdf",
-                    key="btn_pdf_download"
+                    key="btn_pdf_download",
+                    use_container_width=True
                 )
                 st.success(f"Dossier successfully compiled: {pdf_path.name}")
         st.markdown("</div>", unsafe_allow_html=True)
 
     with dcol2:
         st.markdown("""
-            <div style="background-color: #131D31; border: 1px solid #1E293B; border-radius: 8px; padding: 1.25rem;">
-                <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: #F8FAFC;">Analyst Case Disposition</h4>
+            <div class="mt-card">
+                <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: #F8FAFC; font-family: 'Manrope', sans-serif;">
+                    Analyst Case Disposition
+                </h4>
         """, unsafe_allow_html=True)
         
         case_status = st.selectbox(
@@ -167,7 +203,7 @@ def render_ai_assistant(context: dict):
         )
         notes = st.text_area("Compliance Officer Case Notes", placeholder="Enter investigative observations...", height=80)
         
-        if st.button("Save Case Disposition", key="btn_save_case"):
+        if st.button("Save Case Disposition", key="btn_save_case", use_container_width=True):
             db = get_db()
             try:
                 case = InvestigationCase(

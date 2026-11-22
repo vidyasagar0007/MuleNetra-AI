@@ -16,20 +16,32 @@ def render_network_analysis(context: dict):
     profiles = context["profiles"]
     clusters = context["clusters"]
     
+    # Header Banner
     st.markdown("""
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; border-bottom: 1px solid #23334B; padding-bottom: 1.25rem;">
             <div>
-                <h1 style="font-size: 1.6rem; font-weight: 800; color: #F8FAFC; margin: 0; letter-spacing: -0.02em;">
-                    Money Mule Network Intelligence
-                </h1>
-                <p style="font-size: 0.85rem; color: #94A3B8; margin-top: 0.2rem;">
+                <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem;">
+                    <span style="font-size: 1.2rem;">🕸️</span>
+                    <h1 style="font-size: 1.65rem; font-weight: 800; color: #F8FAFC; margin: 0; letter-spacing: -0.025em; font-family: 'Manrope', sans-serif;">
+                        Mule Network Intelligence
+                    </h1>
+                </div>
+                <p style="font-size: 0.85rem; color: #94A3B8; margin: 0; font-family: 'Inter', sans-serif;">
                     Topological graph intelligence, flow-through centralities, and automated mule role heuristic detection.
                 </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span class="badge badge-low" style="font-size: 0.72rem; padding: 0.35rem 0.75rem;">
+                    ● DIGRAPH TOPOLOGY
+                </span>
+                <span class="badge badge-violet" style="font-size: 0.72rem; padding: 0.35rem 0.75rem;">
+                    COMMUNITY DETECTION
+                </span>
             </div>
         </div>
     """, unsafe_allow_html=True)
 
-    # 1. Summary Metrics
+    # 1. Summary Metrics Strip
     mule_counts = profiles["mule_role"].value_counts()
     n_collectors = mule_counts.get("COLLECTOR", 0)
     n_distributors = mule_counts.get("DISTRIBUTOR", 0)
@@ -48,10 +60,26 @@ def render_network_analysis(context: dict):
     with mcol5:
         st.metric("Exit Mules (Cash-Out)", f"{n_exit}")
 
-    st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='height: 12px;'></div>", unsafe_allow_html=True)
 
-    # 2. Network View Selection (Global vs Cluster)
-    tcol1, tcol2 = st.columns([1, 3])
+    # 2. Network View Selection & Large Interactive Graph
+    st.markdown("""
+        <div class="mt-card" style="padding: 1.25rem 1.4rem; margin-bottom: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+                <h4 style="margin: 0; font-size: 1rem; color: #F8FAFC; font-family: 'Manrope', sans-serif;">
+                    Interactive Transaction Flow Network
+                </h4>
+                <div style="display: flex; gap: 0.9rem; align-items: center; font-size: 0.75rem; color: #94A3B8;">
+                    <span><span style="color: #FF5B6E; font-size: 0.9rem;">■</span> Collector</span>
+                    <span><span style="color: #F5B942; font-size: 0.9rem;">◆</span> Distributor</span>
+                    <span><span style="color: #9270FF; font-size: 0.9rem;">⬢</span> Intermediary</span>
+                    <span><span style="color: #EC4899; font-size: 0.9rem;">★</span> Exit Cash-Out</span>
+                    <span><span style="color: #4C8DFF; font-size: 0.9rem;">●</span> Benign Peer</span>
+                </div>
+            </div>
+    """, unsafe_allow_html=True)
+
+    tcol1, tcol2 = st.columns([1, 3.2])
     with tcol1:
         view_mode = st.radio(
             "Visualization Target",
@@ -70,33 +98,34 @@ def render_network_analysis(context: dict):
             role_accs = profiles[profiles["mule_role"] == selected_role]["account_id"].tolist()
             target_nodes = role_accs
 
-    with tcol2:
-        # Legend Header
-        st.markdown("""
-            <div style="display: flex; gap: 1rem; align-items: center; justify-content: flex-end; margin-bottom: 0.5rem; font-size: 0.78rem;">
-                <span><span style="color: #F43F5E;">■</span> Collector (Fan-In)</span>
-                <span><span style="color: #F59E0B;">◆</span> Distributor (Fan-Out)</span>
-                <span><span style="color: #8B5CF6;">⬢</span> Intermediary</span>
-                <span><span style="color: #EC4899;">★</span> Exit Cash-Out</span>
-                <span><span style="color: #38BDF8;">●</span> Benign Peer</span>
+        st.markdown(f"""
+            <div style="background-color: #0D1423; border: 1px solid #23334B; border-radius: 6px; padding: 0.75rem 0.85rem; font-size: 0.75rem; color: #94A3B8; margin-top: 1rem;">
+                <b style="color: #F8FAFC;">Topology Intelligence:</b><br/>
+                Spring layout algorithm partitions nodes by flow proximity. Hover nodes to view In/Out degrees, PageRank, and volume turnover.
             </div>
         """, unsafe_allow_html=True)
 
+    with tcol2:
         fig_net = graph_engine.visualize_network(
             nodes_subset=target_nodes,
             title="Directed Money Movement & Account Linkage"
         )
         st.plotly_chart(fig_net, use_container_width=True)
 
-    st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
     # 3. Two columns: Suspicious Clusters & Circular Loops
     bcol1, bcol2 = st.columns(2)
 
     with bcol1:
         st.markdown("""
-            <div style="background-color: #131D31; border: 1px solid #1E293B; border-radius: 8px; padding: 1.1rem 1.25rem;">
-                <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: #F8FAFC;">Flagged Network Subgraphs & Clusters</h4>
+            <div class="mt-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+                    <h4 style="margin: 0; font-size: 0.95rem; color: #F8FAFC; font-family: 'Manrope', sans-serif;">
+                        Flagged Network Subgraphs & Clusters
+                    </h4>
+                    <span class="badge badge-warning" style="font-size: 0.68rem;">HIGH CONCENTRATION</span>
+                </div>
         """, unsafe_allow_html=True)
 
         if len(clusters) > 0:
@@ -117,8 +146,13 @@ def render_network_analysis(context: dict):
 
     with bcol2:
         st.markdown("""
-            <div style="background-color: #131D31; border: 1px solid #1E293B; border-radius: 8px; padding: 1.1rem 1.25rem;">
-                <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; color: #F8FAFC;">Circular Wash-Trading Cycles Detected</h4>
+            <div class="mt-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+                    <h4 style="margin: 0; font-size: 0.95rem; color: #F8FAFC; font-family: 'Manrope', sans-serif;">
+                        Circular Wash-Trading Cycles Detected
+                    </h4>
+                    <span class="badge badge-critical" style="font-size: 0.68rem;">CRITICAL ANOMALY</span>
+                </div>
         """, unsafe_allow_html=True)
 
         cycles = graph_engine.detect_circular_patterns(max_cycle_length=5)

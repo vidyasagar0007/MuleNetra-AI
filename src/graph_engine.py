@@ -277,8 +277,8 @@ class GraphEngine:
             fig.update_layout(
                 title="No network data to display",
                 template="plotly_dark",
-                paper_bgcolor="#0F172A",
-                plot_bgcolor="#0F172A"
+                paper_bgcolor="#121C2E",
+                plot_bgcolor="#121C2E"
             )
             return fig
 
@@ -294,7 +294,7 @@ class GraphEngine:
 
         edge_trace = go.Scatter(
             x=edge_x, y=edge_y,
-            line=dict(width=1.2, color="#475569"),
+            line=dict(width=1.2, color="#354B6E"),
             hoverinfo="none",
             mode="lines"
         )
@@ -312,15 +312,15 @@ class GraphEngine:
             outflow = meta.get("outflow", 0.0)
 
             if role == "COLLECTOR":
-                node_colors.append("#F43F5E")
+                node_colors.append("#FF5B6E")
                 node_sizes.append(22)
                 node_symbols.append("square")
             elif role == "DISTRIBUTOR":
-                node_colors.append("#F59E0B")
+                node_colors.append("#F5B942")
                 node_sizes.append(20)
                 node_symbols.append("diamond")
             elif role == "INTERMEDIARY":
-                node_colors.append("#8B5CF6")
+                node_colors.append("#9270FF")
                 node_sizes.append(18)
                 node_symbols.append("hexagon")
             elif role == "EXIT_CASH_OUT":
@@ -328,7 +328,7 @@ class GraphEngine:
                 node_sizes.append(18)
                 node_symbols.append("star")
             else:
-                node_colors.append("#38BDF8")
+                node_colors.append("#4C8DFF")
                 node_sizes.append(12)
                 node_symbols.append("circle")
 
@@ -356,7 +356,7 @@ class GraphEngine:
                 size=node_sizes,
                 color=node_colors,
                 symbol=node_symbols,
-                line=dict(width=1.5, color="#0F172A")
+                line=dict(width=1.5, color="#080D18")
             )
         )
 
@@ -365,13 +365,13 @@ class GraphEngine:
             layout=go.Layout(
                 title=dict(
                     text=f"<b>{title}</b>",
-                    font=dict(color="#F8FAFC", size=14, family="Inter")
+                    font=dict(color="#F8FAFC", size=14, family="Manrope")
                 ),
                 showlegend=False,
                 hovermode="closest",
                 margin=dict(b=20, l=20, r=20, t=40),
-                paper_bgcolor="#0F172A",
-                plot_bgcolor="#0F172A",
+                paper_bgcolor="#121C2E",
+                plot_bgcolor="#121C2E",
                 xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
                 yaxis=dict(showgrid=False, zeroline=False, showticklabels=False)
             )
