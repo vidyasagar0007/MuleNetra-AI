@@ -44,59 +44,65 @@ def render_dashboard(context: dict):
     total_volume = scored_tx["amount"].sum()
     suspicious_volume = scored_tx[scored_tx["hybrid_risk_score"] >= 0.55]["amount"].sum()
 
-    col1, col2, col3, col4, col5, col6 = st.columns(6)
+    # Row 1: High-level volume and entity scope (3 columns)
+    row1_c1, row1_c2, row1_c3 = st.columns(3)
 
-    with col1:
+    with row1_c1:
         st.markdown(f"""
             <div class="kpi-container info">
-                <span class="kpi-label">Total Transactions</span>
+                <span class="kpi-label">Total Monitored Transactions</span>
                 <span class="kpi-value">{total_tx:,}</span>
-                <span class="kpi-delta">Processed in session</span>
+                <span class="kpi-delta">Sequential audit stream processed</span>
             </div>
         """, unsafe_allow_html=True)
 
-    with col2:
+    with row1_c2:
         st.markdown(f"""
             <div class="kpi-container info">
-                <span class="kpi-label">Monitored Accounts</span>
+                <span class="kpi-label">Monitored Account Nodes</span>
                 <span class="kpi-value">{total_accounts:,}</span>
-                <span class="kpi-delta">Direct graph nodes</span>
+                <span class="kpi-delta">Active banking graph entities</span>
             </div>
         """, unsafe_allow_html=True)
 
-    with col3:
+    with row1_c3:
+        st.markdown(f"""
+            <div class="kpi-container info">
+                <span class="kpi-label">Total Transaction Volume</span>
+                <span class="kpi-value">${total_volume/1e6:.2f}M</span>
+                <span class="kpi-delta">${suspicious_volume:,.0f} under forensic scrutiny</span>
+            </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
+
+    # Row 2: Anomaly and Risk Tier Telemetry (3 columns)
+    row2_c1, row2_c2, row2_c3 = st.columns(3)
+
+    with row2_c1:
         st.markdown(f"""
             <div class="kpi-container critical">
-                <span class="kpi-label">Flagged Txns</span>
+                <span class="kpi-label">Flagged Anomalous Txns</span>
                 <span class="kpi-value">{suspicious_tx}</span>
-                <span class="kpi-delta" style="color: #FB7185;">{(suspicious_tx/max(total_tx,1))*100:.2f}% anomaly rate</span>
+                <span class="kpi-delta" style="color: #FB7185;">{(suspicious_tx/max(total_tx,1))*100:.2f}% anomaly rate across window</span>
             </div>
         """, unsafe_allow_html=True)
 
-    with col4:
+    with row2_c2:
         st.markdown(f"""
             <div class="kpi-container critical">
-                <span class="kpi-label">Critical Mules</span>
+                <span class="kpi-label">Critical Money Mules</span>
                 <span class="kpi-value">{critical_accounts}</span>
-                <span class="kpi-delta" style="color: #FB7185;">Tier-1 Escalation</span>
+                <span class="kpi-delta" style="color: #FB7185;">Tier-1 Urgent FIU Escalation</span>
             </div>
         """, unsafe_allow_html=True)
 
-    with col5:
+    with row2_c3:
         st.markdown(f"""
             <div class="kpi-container warning">
-                <span class="kpi-label">Flagged Clusters</span>
+                <span class="kpi-label">Flagged Network Clusters</span>
                 <span class="kpi-value">{len(clusters)}</span>
-                <span class="kpi-delta">Suspicious subgraphs</span>
-            </div>
-        """, unsafe_allow_html=True)
-
-    with col6:
-        st.markdown(f"""
-            <div class="kpi-container info">
-                <span class="kpi-label">Total Volume</span>
-                <span class="kpi-value">${total_volume/1e6:.2f}M</span>
-                <span class="kpi-delta">${suspicious_volume:,.0f} flagged</span>
+                <span class="kpi-delta">Multi-hop suspicious subgraphs</span>
             </div>
         """, unsafe_allow_html=True)
 

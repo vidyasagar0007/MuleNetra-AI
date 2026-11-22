@@ -5,6 +5,7 @@ Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation
 
 import sys
 import os
+import base64
 from pathlib import Path
 
 # Add project root to sys.path
@@ -72,8 +73,9 @@ def main():
         # Logo SVG rendering
         logo_path = ASSETS_DIR / "logo.svg"
         if logo_path.exists():
-            with open(logo_path, "r", encoding="utf-8") as f:
-                st.markdown(f"<div style='margin-bottom: 0.5rem;'>{f.read()}</div>", unsafe_allow_html=True)
+            with open(logo_path, "rb") as f:
+                svg_b64 = base64.b64encode(f.read()).decode("utf-8")
+            st.markdown(f'<div style="margin-bottom: 0.5rem;"><img src="data:image/svg+xml;base64,{svg_b64}" style="width: 100%; max-width: 250px; display: block;" alt="MuleTrace AI" /></div>', unsafe_allow_html=True)
         else:
             st.markdown(f"### 🛡️ {APP_TITLE}")
 

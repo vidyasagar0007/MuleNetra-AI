@@ -104,6 +104,10 @@ header[data-testid="stHeader"] {
   color: var(--text-secondary);
   margin-bottom: 0.35rem;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: keep-all;
 }
 
 .kpi-value {
@@ -112,6 +116,10 @@ header[data-testid="stHeader"] {
   color: var(--text-primary);
   font-family: var(--font-mono);
   letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: keep-all;
 }
 
 .kpi-delta {
