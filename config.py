@@ -25,7 +25,8 @@ for directory in [RAW_DATA_DIR, PROCESSED_DATA_DIR, MODELS_DIR, REPORTS_DIR, ASS
     directory.mkdir(parents=True, exist_ok=True)
 
 # Database Configuration
-DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{BASE_DIR / 'data' / 'muletrace.db'}")
+db_file = (DATA_DIR / "muletrace.db").resolve()
+DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{db_file.as_posix()}")
 
 # Machine Learning & Deep Learning Hyperparameters
 RANDOM_SEED = 42

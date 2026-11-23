@@ -23,16 +23,24 @@ wheels/
 .installed.cfg
 *.egg
 
-# Virtual Environment
+# Virtual Environment & Secrets
 venv/
 .env
+.env.local
+.env.*.local
+*.key
+*.pem
+*.cert
 
-# Streamlit
-.streamlit/
+# Streamlit secrets (allow .streamlit/config.toml)
+.streamlit/secrets.toml
 
-# Database & artifacts
+# Database & runtime files
 *.db
 *.sqlite3
+
+# Test caches
+.pytest_cache/
 
 # OS generated
 .DS_Store

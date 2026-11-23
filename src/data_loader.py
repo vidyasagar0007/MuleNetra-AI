@@ -17,8 +17,8 @@ root_dir = Path(__file__).resolve().parent.parent
 if str(root_dir) not in sys.path:
     sys.path.insert(0, str(root_dir))
 
-from config import RAW_DATA_DIR, RANDOM_SEED
-from src.database import save_transactions_to_db
+from config import RAW_DATA_DIR, DATA_DIR, RANDOM_SEED
+from src.database import save_transactions_to_db, init_db
 
 def generate_synthetic_aml_data(
     n_accounts: int = 500,
@@ -312,11 +312,20 @@ def generate_synthetic_aml_data(
 def get_or_create_dataset(force_regenerate: bool = False) -> pd.DataFrame:
     """
     Load dataset from CSV if available, or generate and persist to raw CSV & SQLite.
+    Guarantees that on a clean cloud deployment without an existing database file,
+    the SQLite database and all tables are immediately initialized and populated.
     """
     raw_csv_path = RAW_DATA_DIR / "transactions_raw.csv"
+    db_path = DATA_DIR / "muletrace.db"
     
     if not force_regenerate and raw_csv_path.exists():
         df = pd.read_csv(raw_csv_path, parse_dates=["timestamp"])
+        if not db_path.exists():
+            try:
+                init_db()
+                save_transactions_to_db(df)
+            except Exception as e:
+                print(f"Database initialization notice: {e}")
         return df
     
     # Generate new synthetic dataset

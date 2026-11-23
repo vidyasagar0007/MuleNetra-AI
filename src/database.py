@@ -83,6 +83,7 @@ def init_db():
 
 def get_db():
     """Get a database session context."""
+    init_db()
     db = SessionLocal()
     try:
         return db
