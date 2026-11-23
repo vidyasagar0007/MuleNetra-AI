@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Graph Intelligence Engine
+MuleNetra AI - Graph Intelligence Engine
 Constructs directed transaction graphs, computes comprehensive network centralities
 (degree, weighted degree, PageRank, clustering coefficient, flow ratios),
 identifies mule topologies (Collectors, Intermediaries, Distributors, Exit Mules),

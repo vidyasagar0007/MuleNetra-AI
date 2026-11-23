@@ -1,5 +1,5 @@
 """
-MuleTrace AI - UI View Integration & Smoke Tests
+MuleNetra AI - UI View Integration & Smoke Tests
 Validates that all Streamlit page views render without exceptions,
 handle data frames safely, and properly bind to risk and graph engines.
 """

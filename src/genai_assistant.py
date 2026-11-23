@@ -1,5 +1,5 @@
 """
-MuleTrace AI - GenAI Investigation Assistant
+MuleNetra AI - GenAI Investigation Assistant
 Generates structured, evidence-grounded AML forensic case narratives,
 hypothesis formulations, and recommended next investigative actions.
 Supports local Ollama, external API, and a deterministic offline forensic engine.

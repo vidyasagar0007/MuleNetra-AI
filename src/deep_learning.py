@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Deep Learning Risk Engine (PyTorch)
+MuleNetra AI - Deep Learning Risk Engine (PyTorch)
 Compact deep neural network for non-linear AML transaction risk classification
 with class-imbalance weighted loss, chronological evaluation, and multi-threshold reporting.
 """

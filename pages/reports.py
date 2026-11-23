@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Reports, Exports & Regulatory Compliance View
+MuleNetra AI - Reports, Exports & Regulatory Compliance View
 Bulk CSV extractions, PDF dossier repository, and automated SAR filing packages.
 """
 
@@ -65,7 +65,7 @@ def render_reports(context: dict):
         st.download_button(
             label="⬇️ Download Transactions CSV",
             data=csv_tx,
-            file_name="MuleTrace_Scored_Transactions.csv",
+            file_name="MuleNetra_Scored_Transactions.csv",
             mime="text/csv",
             key="dl_tx_csv",
             use_container_width=True
@@ -87,7 +87,7 @@ def render_reports(context: dict):
         st.download_button(
             label="⬇️ Download Profiles CSV",
             data=csv_acc,
-            file_name="MuleTrace_Account_Risk_Profiles.csv",
+            file_name="MuleNetra_Account_Risk_Profiles.csv",
             mime="text/csv",
             key="dl_acc_csv",
             use_container_width=True
@@ -111,7 +111,7 @@ def render_reports(context: dict):
             st.download_button(
                 label="⬇️ Download Clusters CSV",
                 data=csv_cl,
-                file_name="MuleTrace_Network_Clusters.csv",
+                file_name="MuleNetra_Network_Clusters.csv",
                 mime="text/csv",
                 key="dl_cl_csv",
                 use_container_width=True
@@ -174,7 +174,7 @@ def render_reports(context: dict):
         
         sar_payload = {
             "sar_header": {
-                "system": "MuleTrace AI Regulatory Subsystem",
+                "system": "MuleNetra AI Regulatory Subsystem",
                 "version": "1.0.0",
                 "timestamp_utc": pd.Timestamp.now('UTC').isoformat(),
                 "filing_institution": "FINANCIAL INTELLIGENCE UNIT (DEMO INSTITUTION)"
@@ -199,7 +199,7 @@ def render_reports(context: dict):
         st.download_button(
             label="⬇️ Download Regulatory SAR Package (JSON)",
             data=sar_json_str.encode("utf-8"),
-            file_name=f"MuleTrace_SAR_{sar_acc}.json",
+            file_name=f"MuleNetra_SAR_{sar_acc}.json",
             mime="application/json",
             key="dl_sar_json"
         )

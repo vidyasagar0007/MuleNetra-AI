@@ -1,6 +1,7 @@
-# MuleTrace AI 🛡️
-### Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform
-**An Advanced B.Tech Capstone Project in Financial Intelligence & Applied Machine Learning**
+# MuleNetra AI 🛡️
+### See the Network. Detect the Risk.
+**AI-Powered Money Mule & Financial Network Intelligence Platform**  
+*An Advanced B.Tech Capstone Project in Financial Intelligence & Applied Machine Learning*
 
 ---
 
@@ -8,7 +9,7 @@
 
 Money mule networks represent one of the most insidious laundering conduits in modern financial ecosystems. Traditional rule-based Transaction Monitoring Systems (TMS) suffer from crippling false-positive rates (often exceeding 95%) and fail to detect sophisticated multi-hop laundering topologies—such as sub-threshold structuring, rapid pass-through dispersal, fan-in pooling, and circular wash trading.
 
-**MuleTrace AI** is an enterprise-grade financial crime intelligence platform designed to address these deficiencies. The system combines:
+**MuleNetra AI** is an enterprise-grade financial crime intelligence platform designed to address these deficiencies. The system combines:
 1. **Supervised Machine Learning (XGBoost & Random Forest)** with class-imbalance compensation (`scale_pos_weight`).
 2. **Deep Representation Learning (PyTorch Compact RiskNet)** using weighted binary cross-entropy loss (`BCEWithLogitsLoss`) and cosine annealing.
 3. **Graph Intelligence (NetworkX & Plotly)** computing directed flow dynamics, in/out-degree divergence, cycle detection, and topological mule roles (Collectors, Distributors, Intermediaries, Exit Mules).
@@ -59,7 +60,7 @@ flowchart TD
 
 ## 3. Dataset & Synthetic AML Topologies
 
-MuleTrace AI generates and ingests high-fidelity synthetic financial transactions benchmarked against IBM AMLSim and PaySim parameters. Every synthetic transaction is explicitly tagged (`is_synthetic = True`).
+MuleNetra AI generates and ingests high-fidelity synthetic financial transactions benchmarked against IBM AMLSim and PaySim parameters. Every synthetic transaction is explicitly tagged (`is_synthetic = True`).
 
 ### Implemented Laundering Topologies:
 1. **Structuring / Smurfing:** Multiple deposits just beneath regulatory reporting thresholds ($8,800 to $9,950) within compressed timeframes into a designated collector account.
@@ -257,21 +258,20 @@ For submission to university examination committees, the project report should f
 ### Q1: Why is a chronological train-test split necessary instead of standard random k-fold cross-validation?
 **Answer:** In financial transaction monitoring, transactions possess strict temporal dependencies. Using random splitting leads to **lookahead bias (data leakage)**, where a model predicts past transactions using future information (such as subsequent transaction velocity or final account balance). Chronological splitting trains on time $t \le T$ and evaluates on $t > T$, accurately replicating real-world deployment.
 
-### Q2: How does MuleTrace AI address extreme class imbalance?
-**Answer:** Money laundering transactions typically constitute under 1% of banking activity. MuleTrace AI utilizes:
+### Q2: How does MuleNetra AI address extreme class imbalance?
+**Answer:** Money laundering transactions typically constitute under 1% of banking activity. MuleNetra AI utilizes:
 1. `scale_pos_weight` in XGBoost, setting the weight of the positive class proportional to $\frac{N_{\text{negative}}}{N_{\text{positive}}}$.
 2. `BCEWithLogitsLoss(pos_weight=...)` in PyTorch, which penalizes false negatives proportionally.
 3. PR-AUC (Precision-Recall Area Under Curve) and F1-score rather than accuracy, as accuracy is misleading on imbalanced datasets.
 
 ### Q3: How are the mule roles (Collector, Distributor, Intermediary, Exit) determined?
-**Answer:** Mule roles are derived via directed graph topological heuristics:
 - **Collector Mule (Fan-in):** In-degree $\ge 4$, out-degree $\le 2$, high inflow from diverse counterparties.
 - **Distributor Mule (Fan-out):** In-degree $\le 2$, out-degree $\ge 4$, disbursing pooled capital.
 - **Intermediary Mule:** High velocity pass-through where outflow approximately equals inflow ($0.85 \le \frac{\text{Out}}{\text{In}} \le 1.15$) with minimal holding time.
 - **Exit Mule:** High inflow with near-zero forward electronic transfers (indicating cash withdrawals or crypto off-ramps).
 
 ### Q4: How does the system prevent LLM hallucinations in forensic investigations?
-**Answer:** MuleTrace AI implements a **grounded-telemetry architecture**. The assistant is strictly supplied with verified database records (exact inflow/outflow sums, computed risk scores, specific triggered rule indicators). Furthermore, a deterministic offline rule engine acts as the primary forensic generator, ensuring 100% availability and reproducibility without any possibility of inventing non-existent evidence.
+**Answer:** MuleNetra AI implements a **grounded-telemetry architecture**. The assistant is strictly supplied with verified database records (exact inflow/outflow sums, computed risk scores, specific triggered rule indicators). Furthermore, a deterministic offline rule engine acts as the primary forensic generator, ensuring 100% availability and reproducibility without any possibility of inventing non-existent evidence.
 
 ### Q5: What is the justification for combining XGBoost, PyTorch, and Graph Heuristics?
 **Answer:** Each modality addresses a distinct dimension of money laundering:
@@ -283,4 +283,4 @@ For submission to university examination committees, the project report should f
 
 ## 10. Legal & Academic Disclaimer
 
-MuleTrace AI is an academic research and engineering prototype developed for university evaluation. Risk scores and algorithmic classifications indicate statistical anomalies and topological patterns; they do not constitute definitive legal proof of criminal activity.
+MuleNetra AI is an academic research and engineering prototype developed for university evaluation. Risk scores and algorithmic classifications indicate statistical anomalies and topological patterns; they do not constitute definitive legal proof of criminal activity.

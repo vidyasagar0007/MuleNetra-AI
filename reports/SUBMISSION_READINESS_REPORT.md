@@ -1,6 +1,6 @@
-# MuleTrace AI — Final B.Tech Project Submission Readiness Report
+# MuleNetra AI — Final B.Tech Project Submission Readiness Report
 
-**Project Title:** MuleTrace AI — Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform  
+**Project Title:** MuleNetra AI — Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform  
 **Target Degree:** Bachelor of Technology (B.Tech) in Computer Science & Engineering / Artificial Intelligence  
 **Academic Submission Date:** November 22, 2026  
 **Repository Path:** `C:\Users\vidya\.gemini\antigravity\scratch\MuleTrace-AI`  
@@ -11,7 +11,7 @@
 
 ## 1. Executive Summary & Verification Declaration
 
-This document certifies that **MuleTrace AI** has undergone a comprehensive academic review, functional verification across all seven operational modules, multi-threshold model auditing, and full documentation assembly. The project meets all rigorous standards required for an advanced B.Tech capstone project.
+This document certifies that **MuleNetra AI** has undergone a comprehensive academic review, functional verification across all seven operational modules, multi-threshold model auditing, and full documentation assembly. The project meets all rigorous standards required for an advanced B.Tech capstone project.
 
 ### Core System Attributes Confirmed:
 1. **Mathematical Soundness:** All evaluation metrics (Precision, Recall, F1, ROC-AUC, PR-AUC, FPR) have been empirically verified on an unseen chronological test set ($N=1,918$ transactions, $0.91\%$ natural laundering prevalence).
@@ -87,7 +87,7 @@ All documentation has been compiled in the `reports/` directory and root workspa
 | **Final Acceptance Audit Report** | [reports/FINAL_ACCEPTANCE_REPORT.md](file:///C:/Users/vidya/.gemini/antigravity/scratch/MuleTrace-AI/reports/FINAL_ACCEPTANCE_REPORT.md) | Detailed verification audit covering metric recalculation, confusion matrices, and hybrid risk formulas. |
 | **Viva Defense Preparation (25 Q&As)** | [reports/VIVA_PREPARATION.md](file:///C:/Users/vidya/.gemini/antigravity/scratch/MuleTrace-AI/reports/VIVA_PREPARATION.md) | Exhaustive preparation guide featuring 25 anticipated viva examination questions with concise model answers. |
 | **Audited Evaluation JSON Artifact** | [models/evaluation_summary.json](file:///C:/Users/vidya/.gemini/antigravity/scratch/MuleTrace-AI/models/evaluation_summary.json) | Machine-readable benchmark telemetry and multi-threshold matrix. |
-| **Forensic PDF Dossier Sample** | [reports/MuleTrace_Forensic_Report_ACC_0099_20261120_185925.pdf](file:///C:/Users/vidya/.gemini/antigravity/scratch/MuleTrace-AI/reports/MuleTrace_Forensic_Report_ACC_0099_20261120_185925.pdf) | Sample generated audit-grade PDF investigation dossier. |
+| **Forensic PDF Dossier Sample** | [reports/MuleNetra_Forensic_Report_ACC_0099_20261120_185925.pdf](file:///C:/Users/vidya/.gemini/antigravity/scratch/MuleTrace-AI/reports/MuleNetra_Forensic_Report_ACC_0099_20261120_185925.pdf) | Sample generated audit-grade PDF investigation dossier. |
 | **Project Architecture & README** | [README.md](file:///C:/Users/vidya/.gemini/antigravity/scratch/MuleTrace-AI/README.md) | Comprehensive GitHub repository documentation and architecture breakdown. |
 
 ---
@@ -112,4 +112,4 @@ streamlit run app.py
 *Application opens automatically at `http://localhost:8501`.*
 
 ---
-*End of Submission Readiness Report — MuleTrace AI B.Tech Capstone Project (2026)*
+*End of Submission Readiness Report — MuleNetra AI B.Tech Capstone Project (2026)*

@@ -1,7 +1,7 @@
-# MuleTrace AI — College Live Demonstration & Defense Guide
+# MuleNetra AI — College Live Demonstration & Defense Guide
 
 ## Executive Overview
-This guide provides a comprehensive, step-by-step walkthrough for demonstrating **MuleTrace AI — Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform** during a formal B.Tech final-year project viva or academic presentation.
+This guide provides a comprehensive, step-by-step walkthrough for demonstrating **MuleNetra AI — Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform** during a formal B.Tech final-year project viva or academic presentation.
 
 The platform runs 100% locally on `http://localhost:8501` without requiring internet connectivity, external GPU resources, or paid third-party API keys.
 
@@ -177,7 +177,7 @@ flowchart LR
 > **Model Answer:** *"During historical feature engineering, graph centrality metrics are computed only over past transaction windows. In addition, graph features represent topology anomaly signals that are combined at late fusion rather than fed into the train-set tabular features, ensuring complete temporal isolation."*
 
 ### Q5: Is a high risk score legal proof of money laundering?
-> **Model Answer:** *"No. MuleTrace AI is a research intelligence prototype designed to assist human compliance investigators. As stated in our academic disclaimer, risk scores are behavioral anomaly indicators that triage high-risk accounts for human review, Enhanced Due Diligence (EDD), and formal SAR consideration."*
+> **Model Answer:** *"No. MuleNetra AI is a research intelligence prototype designed to assist human compliance investigators. As stated in our academic disclaimer, risk scores are behavioral anomaly indicators that triage high-risk accounts for human review, Enhanced Due Diligence (EDD), and formal SAR consideration."*
 
 ---
 

@@ -1,6 +1,6 @@
-# MuleTrace AI — Final Acceptance Audit & Viva Readiness Report
+# MuleNetra AI — Final Acceptance Audit & Viva Readiness Report
 
-**Project Title:** MuleTrace AI — Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform  
+**Project Title:** MuleNetra AI — Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform  
 **Target Degree:** Bachelor of Technology (B.Tech) Capstone Final Year Project  
 **Audit Date:** November 21, 2026  
 **Auditor:** Senior AI/ML Engineer, Full-Stack Developer & Software Architect  
@@ -12,7 +12,7 @@
 
 ## 1. Executive Summary & Final Verdict
 
-This document certifies that **MuleTrace AI** has undergone an exhaustive, evidence-based final acceptance audit. All benchmark metrics, data splits, feature extraction logic, model weights, graph topologies, and user interface modules were independently evaluated against the strict chronological out-of-time test split.
+This document certifies that **MuleNetra AI** has undergone an exhaustive, evidence-based final acceptance audit. All benchmark metrics, data splits, feature extraction logic, model weights, graph topologies, and user interface modules were independently evaluated against the strict chronological out-of-time test split.
 
 ### Key Audit Conclusions:
 1. **Mathematical Integrity of Metrics:** All reported evaluation metrics (Precision, Recall, F1, ROC-AUC, PR-AUC, FPR) have been recalculated directly from model prediction vectors on unseen test data. Every metric matches the confusion matrices.
@@ -194,7 +194,7 @@ In strict adherence to academic ethics and engineering integrity, all documentat
 | **Final Acceptance Audit Report** | [reports/FINAL_ACCEPTANCE_REPORT.md](file:///C:/Users/vidya/.gemini/antigravity/scratch/MuleTrace-AI/reports/FINAL_ACCEPTANCE_REPORT.md) |
 | **Model Validation Audit Report** | [reports/model_validation_audit.md](file:///C:/Users/vidya/.gemini/antigravity/scratch/MuleTrace-AI/reports/model_validation_audit.md) |
 | **Audited Evaluation Summary JSON** | [models/evaluation_summary.json](file:///C:/Users/vidya/.gemini/antigravity/scratch/MuleTrace-AI/models/evaluation_summary.json) |
-| **Generated Forensic PDF Dossier Sample** | [reports/MuleTrace_Forensic_Report_ACC_0099_20261120_185925.pdf](file:///C:/Users/vidya/.gemini/antigravity/scratch/MuleTrace-AI/reports/MuleTrace_Forensic_Report_ACC_0099_20261120_185925.pdf) |
+| **Generated Forensic PDF Dossier Sample** | [reports/MuleNetra_Forensic_Report_ACC_0099_20261120_185925.pdf](file:///C:/Users/vidya/.gemini/antigravity/scratch/MuleTrace-AI/reports/MuleNetra_Forensic_Report_ACC_0099_20261120_185925.pdf) |
 | **Project Documentation & Architecture** | [README.md](file:///C:/Users/vidya/.gemini/antigravity/scratch/MuleTrace-AI/README.md) |
 
 ---

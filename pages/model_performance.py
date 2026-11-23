@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Model Performance & Benchmarks View
+MuleNetra AI - Model Performance & Benchmarks View
 Comparative performance metrics, chronological validation verification,
 multi-threshold operational matrices, confusion matrices, and SHAP feature importance analysis.
 """
@@ -228,7 +228,7 @@ def render_model_performance(context: dict):
                 Audited Multi-Modal Risk Fusion Architecture
             </h4>
             <p style="font-size: 0.85rem; color: #94A3B8; margin-bottom: 0.75rem; font-family: 'Inter', sans-serif;">
-                MuleTrace AI resolves single-model biases by utilizing a mathematically calibrated, late-fusion ensemble:
+                MuleNetra AI resolves single-model biases by utilizing a mathematically calibrated, late-fusion ensemble:
             </p>
             <div style="background-color: #080D18; border: 1px solid #23334B; border-radius: 6px; padding: 0.85rem 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.92rem; color: #4C8DFF; text-align: center;">
                 R_hybrid = (0.40 × P_TreeEnsemble) + (0.30 × P_PyTorchNet) + (0.30 × G_TopologyAnomaly)

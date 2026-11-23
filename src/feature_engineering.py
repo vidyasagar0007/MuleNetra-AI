@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Feature Engineering Module
+MuleNetra AI - Feature Engineering Module
 Builds leakage-safe transaction, temporal, account-velocity, and sequential flow dynamics features.
 """
 

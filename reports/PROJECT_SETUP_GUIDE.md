@@ -1,4 +1,4 @@
-# MuleTrace AI — Comprehensive System Setup & Execution Guide
+# MuleNetra AI — Comprehensive System Setup & Execution Guide
 
 **Operating System:** Windows 10 / Windows 11 (PowerShell)  
 **Python Runtime:** Python 3.10 or 3.11 (64-bit)  
@@ -43,7 +43,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
 ## 3. Dependency Installation
 
-MuleTrace AI utilizes a locked `requirements.txt` containing all machine learning, deep learning, graph, and UI dependencies:
+MuleNetra AI utilizes a locked `requirements.txt` containing all machine learning, deep learning, graph, and UI dependencies:
 
 ```powershell
 # Upgrade pip to latest version
@@ -70,7 +70,7 @@ pip install -r requirements.txt --extra-index-url https://download.pytorch.org/w
 
 ## 4. End-to-End Pipeline Execution (Data Generation & Model Training)
 
-MuleTrace AI includes a standalone training script that generates the synthetic dataset, creates the SQLite database, performs the 80/20 chronological split, trains all ML/DL models, constructs the graph, and persists all model weights into `models/`:
+MuleNetra AI includes a standalone training script that generates the synthetic dataset, creates the SQLite database, performs the 80/20 chronological split, trains all ML/DL models, constructs the graph, and persists all model weights into `models/`:
 
 ```powershell
 python src/train_pipeline.py
@@ -182,4 +182,4 @@ streamlit run app.py
 **Solution:** In the GenAI Assistant page, keep the provider selection set to **"Deterministic Offline Engine"**. This engine requires zero internet access, zero API keys, and compiles 100% grounded investigation briefs and PDF reports using local database records.
 
 ---
-*End of Setup Guide — MuleTrace AI B.Tech Capstone Project (2026)*
+*End of Setup Guide — MuleNetra AI B.Tech Capstone Project (2026)*

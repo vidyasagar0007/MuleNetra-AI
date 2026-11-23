@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Automated Backend Verification Test Suite
+MuleNetra AI - Automated Backend Verification Test Suite
 Tests data loading, temporal splitting, feature engineering, ML models,
 SHAP explainability, PyTorch deep learning, NetworkX graph metrics, and risk scoring.
 """

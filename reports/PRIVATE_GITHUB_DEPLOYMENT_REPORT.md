@@ -1,11 +1,13 @@
-# MuleTrace AI — Secure Private GitHub & Streamlit Community Cloud Deployment Report
+# MuleNetra AI — Secure Private GitHub & Streamlit Community Cloud Deployment Report
 
-**Project Title:** MuleTrace AI — Hybrid AI-Powered Money Mule Network Detection & Financial Crime Investigation Platform  
+**Project Title:** MuleNetra AI — AI-Powered Money Mule & Financial Network Intelligence Platform  
+**Tagline:** See the Network. Detect the Risk.  
+**Subtitle:** Financial Intelligence Platform  
 **Target Platform:** Streamlit Community Cloud (Debian/Ubuntu Linux Container Runtime)  
 **Target Repository Visibility:** **PRIVATE** (Strict requirement: Never Public)  
 **Entrypoint File:** `app.py`  
 **Git Working Branch:** `master`  
-**Latest Git Commit SHA:** `223138e` (`chore(deploy): prepare configuration, cross-platform paths, and self-initializing database for Streamlit Community Cloud`)  
+**GitHub Repository URL:** `https://github.com/vidyasagar0007/MuleNetra-AI`  
 **Audit Status:** **100% Passed (Pre-Flight Verified)**  
 **Deployment State:** Prepared & Verified Locally (Awaiting Remote Push Authorization)
 
@@ -13,7 +15,7 @@
 
 ## 1. Executive Summary & Verification Matrix
 
-MuleTrace AI has undergone an exhaustive pre-flight deployment and security audit to guarantee seamless, zero-error deployment to Streamlit Community Cloud within a **Private GitHub Repository**. Every operational domain—including secret scanning, cross-platform path resolution, clean container database initialization, memory budgeting, automated export generation, and end-to-end regression testing—was independently verified with automated test suites.
+MuleNetra AI has undergone an exhaustive pre-flight deployment and security audit to guarantee seamless, zero-error deployment to Streamlit Community Cloud within a **Private GitHub Repository**. Every operational domain—including secret scanning, cross-platform path resolution, clean container database initialization, memory budgeting, automated export generation, and end-to-end regression testing—was independently verified with automated test suites.
 
 | Verification Domain | Target Standard / Constraint | Audit Result | Status |
 | :--- | :--- | :--- | :---: |
@@ -109,7 +111,7 @@ All trained machine learning artifacts, deep learning weights, and explainabilit
 - PyTorch + XGBoost + Scikit-Learn libraries: ~22 MB
 - In-memory DataFrame (9,587 rows x 25 features) + NetworkX graph: ~12 MB
 - **Total Active Memory:** **~79 MB** (Less than **8%** of the 1,024 MB Community Cloud limit)
-- **Verdict:** MuleTrace AI runs with exceptional headroom and will never trigger OOM eviction on Community Cloud.
+- **Verdict:** MuleNetra AI runs with exceptional headroom and will never trigger OOM eviction on Community Cloud.
 
 ---
 
@@ -131,7 +133,7 @@ A complete integration test (`scratch/test_exports.py`) was executed to ensure f
 
 ## 6. Full Regression Test Execution
 
-The complete MuleTrace AI automated test suite was executed:
+The complete MuleNetra AI automated test suite was executed:
 ```powershell
 pytest -v
 ```
@@ -174,11 +176,11 @@ Follow these exact steps to link and push your verified repository to GitHub as 
 1. Open your browser and navigate to: **[https://github.com/new](https://github.com/new)**
 2. In the **Repository name** field, enter:
    ```text
-   MuleTrace-AI
+   MuleNetra-AI
    ```
 3. In the **Description** field (optional), enter:
    ```text
-   Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform
+   AI-Powered Money Mule & Financial Network Intelligence Platform
    ```
 4. **CRITICAL STEP — Visibility:**  
    Select **🔒 Private**  
@@ -199,7 +201,7 @@ Open PowerShell on your computer, navigate to the project directory, and execute
 cd "C:\Users\vidya\.gemini\antigravity\scratch\MuleTrace-AI"
 
 # 1. Add the GitHub remote pointing to your new private repository
-git remote add origin https://github.com/vidyasagar0007/MuleTrace-AI.git
+git remote add origin https://github.com/vidyasagar0007/MuleNetra-AI.git
 
 # 2. Ensure your active branch is named master (or main if preferred)
 git branch -M master
@@ -226,10 +228,10 @@ Once your private GitHub repository is pushed, deploy it to Streamlit Community 
 1. Click the **"New app"** (or **"Create app"**) button in the top right.
 2. Select **"I already have an app"**.
 3. Fill in the deployment parameters:
-   - **Repository:** `vidyasagar0007/MuleTrace-AI`
+   - **Repository:** `vidyasagar0007/MuleNetra-AI`
    - **Branch:** `master`
    - **Main file path:** `app.py`
-   - **App URL (optional):** `muletrace-ai` (or leave default)
+   - **App URL (optional):** `mulenetra-ai` (or leave default)
 
 ### Step 8.3: Configure App Secrets (Gemini API Key)
 1. Click **"Advanced settings..."** before deploying (or go to App Settings -> Secrets after launch).
@@ -237,7 +239,7 @@ Once your private GitHub repository is pushed, deploy it to Streamlit Community 
    ```toml
    GEMINI_API_KEY = "AIzaSy..."
    ```
-   *(Note: MuleTrace AI has a built-in offline forensic fallback intelligence engine, so even if no Gemini key is provided, the AI Assistant and narrative generation will function smoothly without crashing).*
+   *(Note: MuleNetra AI has a built-in offline forensic fallback intelligence engine, so even if no Gemini key is provided, the AI Assistant and narrative generation will function smoothly without crashing).*
 3. Under **Python version**, select **`3.11`** (recommended) or `3.10`.
 
 ### Step 8.4: Deploy & Verify
@@ -248,7 +250,7 @@ Once your private GitHub repository is pushed, deploy it to Streamlit Community 
    - Apply styling and configuration from `.streamlit/config.toml`.
    - Execute `app.py`, which self-initializes SQLite and populates the 9,587 transactions.
 3. Your application will be live at:
-   `https://muletrace-ai.streamlit.app` (or your chosen URL).
+   `https://mulenetra-ai.streamlit.app` (or your chosen URL).
 
 ---
 

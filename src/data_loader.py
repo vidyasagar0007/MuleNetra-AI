@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Data Loading & Synthetic AML Transaction Generator
+MuleNetra AI - Data Loading & Synthetic AML Transaction Generator
 Generates realistic, reproducible financial crime datasets featuring structuring,
 fan-in/fan-out, rapid pass-through, circular loops, layering, and dormant activations.
 Distributes laundering patterns across the full timeline for realistic chronological evaluation.

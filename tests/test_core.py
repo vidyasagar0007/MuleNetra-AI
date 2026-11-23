@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Core Automated Test Suite
+MuleNetra AI - Core Automated Test Suite
 Verifies data generation, feature engineering, ML models, PyTorch deep net,
 graph heuristics, hybrid risk scoring, and report generation.
 """

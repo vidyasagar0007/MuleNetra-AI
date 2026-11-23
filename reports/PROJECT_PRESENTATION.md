@@ -1,19 +1,19 @@
-# MuleTrace AI — Final Year B.Tech Project Presentation Outline
+# MuleNetra AI — Final Year B.Tech Project Presentation Outline
 
-**Project Title:** MuleTrace AI — Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform  
+**Project Title:** MuleNetra AI — Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform  
 **Target Audience:** Academic Project Evaluation Committee, External Examiners, Faculty Guides  
 **Format:** 15 Slides • Slide Titles, Key Bullet Points, Suggested Visuals, and Detailed Speaker Notes  
 
 ---
 
 ### Slide 1: Title & Project Overview
-- **Title:** MuleTrace AI: Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform
+- **Title:** MuleNetra AI: Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform
 - **Sub-Title:** A Unified Machine Learning, Deep Representation, and Graph Topological Framework for Financial Surveillance
 - **Student Details:** Final Year B.Tech Project (Computer Science & Engineering / Artificial Intelligence)
 - **Academic Year:** 2025–2026
-- **Suggested Visuals:** High-tech fintech branding with the MuleTrace shield logo and dark navy background (`#0A0E17`).
+- **Suggested Visuals:** High-tech fintech branding with the MuleNetra shield logo and dark navy background (`#0A0E17`).
 - **Speaker Notes:**
-  > "Good morning, respected members of the evaluation committee and external examiners. Today, I am proud to present 'MuleTrace AI'—an enterprise-grade artificial intelligence platform designed to detect complex money mule networks and automate financial crime investigations. In this presentation, I will walk you through our problem motivation, hybrid architecture, zero-leakage evaluation, and live demonstration."
+  > "Good morning, respected members of the evaluation committee and external examiners. Today, I am proud to present 'MuleNetra AI'—an enterprise-grade artificial intelligence platform designed to detect complex money mule networks and automate financial crime investigations. In this presentation, I will walk you through our problem motivation, hybrid architecture, zero-leakage evaluation, and live demonstration."
 
 ---
 
@@ -38,7 +38,7 @@
 
 ---
 
-### Slide 4: Proposed Solution — The MuleTrace AI Architecture
+### Slide 4: Proposed Solution — The MuleNetra AI Architecture
 - **Four Integrated Pillars:**
   1. *Supervised Tree Ensemble:* XGBoost Champion (`scale_pos_weight=108.9`) + Random Forest bagging baseline.
   2. *Deep Representation Learning:* PyTorch Compact RiskNet (BCE with pos_weight & batch normalization).
@@ -47,7 +47,7 @@
 - **Late-Fusion Hybrid Engine:** Mathematically calibrated risk index combining tabular, deep, and topological signals.
 - **Suggested Visuals:** 4-pillar diagram converging into the Late-Fusion Hybrid Risk Engine.
 - **Speaker Notes:**
-  > "MuleTrace AI solves these challenges through a multi-modal hybrid architecture. Instead of relying on a single model, we combine tree ensembles for precise numerical boundaries, a PyTorch neural network for latent representations, a NetworkX graph engine for network topologies, and SHAP plus GenAI for regulatory explainability."
+  > "MuleNetra AI solves these challenges through a multi-modal hybrid architecture. Instead of relying on a single model, we combine tree ensembles for precise numerical boundaries, a PyTorch neural network for latent representations, a NetworkX graph engine for network topologies, and SHAP plus GenAI for regulatory explainability."
 
 ---
 
@@ -91,7 +91,7 @@
 - **Leakage Prevention:** Cumulative metrics subtract the current transaction amount, preventing self-inclusion.
 - **Suggested Visuals:** Table of key features with their mathematical formulas and fraud signals.
 - **Speaker Notes:**
-  > "We engineered 22 domain-specific features. A key contribution of our work is resolving 'historical amnesia'. Many academic projects calculate features separately on test data, wiping historical counters to zero. In MuleTrace AI, features are generated chronologically across the ordered stream, giving every test record its genuine prior history with strictly zero forward lookahead."
+  > "We engineered 22 domain-specific features. A key contribution of our work is resolving 'historical amnesia'. Many academic projects calculate features separately on test data, wiping historical counters to zero. In MuleNetra AI, features are generated chronologically across the ordered stream, giving every test record its genuine prior history with strictly zero forward lookahead."
 
 ---
 
@@ -128,7 +128,7 @@
 - **Risk Tiers:** CRITICAL ($\ge 0.75$, 20 accounts), HIGH ($0.55–0.74$, 75 accounts), MEDIUM ($0.35–0.54$, 73 accounts), LOW ($< 0.35$, 332 accounts).
 - **Suggested Visuals:** Visual formula breakdown showing weights: 40% Tree Ensemble, 30% PyTorch Neural Net, 30% Graph Topology.
 - **Speaker Notes:**
-  > "Rather than relying on one model, MuleTrace AI uses a late-fusion formula. 40% comes from the calibrated tree ensemble, 30% from PyTorch deep representations, and 30% from NetworkX topological risk. These signals are fused and clipped between 0.0 and 1.0, and aggregated into account-level risk profiles categorized into four actionable tiers."
+  > "Rather than relying on one model, MuleNetra AI uses a late-fusion formula. 40% comes from the calibrated tree ensemble, 30% from PyTorch deep representations, and 30% from NetworkX topological risk. These signals are fused and clipped between 0.0 and 1.0, and aggregated into account-level risk profiles categorized into four actionable tiers."
 
 ---
 
@@ -152,7 +152,7 @@
 - **Regulatory Deliverables:** Compiles ReportLab PDF dossiers and FinCEN SAR JSON packages with simulated chain-of-custody hashes.
 - **Suggested Visuals:** Screenshot of the Plotly SHAP waterfall chart and the generated PDF report page.
 - **Speaker Notes:**
-  > "To satisfy banking regulators, MuleTrace AI incorporates TreeSHAP explainability. Our waterfall charts show compliance officers the exact dollar and velocity factors that drove the risk score. Furthermore, our GenAI assistant synthesizes a grounded 4-part investigation brief and compiles an official PDF dossier and FinCEN SAR JSON package—with zero hallucinations."
+  > "To satisfy banking regulators, MuleNetra AI incorporates TreeSHAP explainability. Our waterfall charts show compliance officers the exact dollar and velocity factors that drove the risk score. Furthermore, our GenAI assistant synthesizes a grounded 4-part investigation brief and compiles an official PDF dossier and FinCEN SAR JSON package—with zero hallucinations."
 
 ---
 
@@ -196,7 +196,7 @@
 - **Thank You:** Open for Questions and Technical Defense.
 - **Suggested Visuals:** Summary badge display: 'Zero Leakage Certified • 23/23 Tests Passed • 0.9959 PR-AUC'.
 - **Speaker Notes:**
-  > "In conclusion, MuleTrace AI bridges the critical gap between research-grade machine learning and operational financial crime compliance. It achieves exceptional detection performance with zero false alarms while providing full explainability and automated reporting. Thank you for your time and consideration, and I am now ready to answer your questions and demonstrate the platform."
+  > "In conclusion, MuleNetra AI bridges the critical gap between research-grade machine learning and operational financial crime compliance. It achieves exceptional detection performance with zero false alarms while providing full explainability and automated reporting. Thank you for your time and consideration, and I am now ready to answer your questions and demonstrate the platform."
 
 ---
-*End of Presentation Outline — MuleTrace AI B.Tech Capstone Defense (2026)*
+*End of Presentation Outline — MuleNetra AI B.Tech Capstone Defense (2026)*

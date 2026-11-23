@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Machine Learning Engine
+MuleNetra AI - Machine Learning Engine
 Trains Random Forest and Logistic Regression baselines alongside an optimized
 XGBoost champion model with class-imbalance handling, chronological evaluation,
 multi-threshold operational benchmarking, and SHAP feature attribution.

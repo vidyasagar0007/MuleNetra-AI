@@ -1,3 +1,3 @@
 """
-MuleTrace AI - UI Page Views Package
+MuleNetra AI - UI Page Views Package
 """

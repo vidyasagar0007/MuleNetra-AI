@@ -1,4 +1,4 @@
-# MuleTrace AI: Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform
+# MuleNetra AI: Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform
 
 **A Final Year B.Tech Project Report Submitted in Partial Fulfillment of the Requirements for the Degree of Bachelor of Technology in Computer Science and Engineering / Artificial Intelligence**
 
@@ -13,7 +13,7 @@
 
 Money mule networks represent one of the primary mechanisms through which transnational criminal organizations launder illicit funds, bypass Anti-Money Laundering (AML) controls, and integrate illegitimate capital into the global banking system. Conventional rule-based Transaction Monitoring Systems (TMS) generate unsustainable false-positive rates (often exceeding 95%) and fail to detect sophisticated non-linear evasion tactics, including sub-threshold structuring ("smurfing"), rapid pass-through dispersal, fan-in/fan-out consolidation, and circular wash trading.
 
-This project presents **MuleTrace AI**, an enterprise-grade hybrid artificial intelligence platform engineered for money mule network detection and autonomous financial crime investigation. The system integrates four complementary detection paradigms: (1) an ensemble of supervised tree algorithms featuring a champion **XGBoost Classifier** with cost-sensitive minority gradient scaling (`scale_pos_weight=108.9`) and a **Random Forest** variance-reduction baseline; (2) a compact deep neural network (**PyTorch RiskNet**) with batch normalization and weighted binary cross-entropy loss to extract continuous latent representations; (3) a **NetworkX** directed graph intelligence engine that models transaction topology, bounded-depth cycle detection, and heuristic mule role classifications (Collectors, Distributors, Intermediaries, Exit Mules); and (4) an empirical **Late-Fusion Hybrid Risk Engine** that calibrates tabular, neural, and topological risk signals into normalized transaction and account risk scores. To fulfill international regulatory explainability mandates, the platform incorporates game-theoretic **SHAP (SHapley Additive exPlanations)** feature attribution alongside a deterministic, evidence-grounded **GenAI Forensic Assistant** capable of synthesizing audit-ready narrative briefs, ReportLab PDF dossiers, and FinCEN-compatible Suspicious Activity Report (SAR) JSON packages without factual hallucination. Evaluated on a strictly isolated chronological out-of-time test set ($N=1,918$, natural laundering prevalence $0.91\%$), the champion XGBoost model achieved an extraordinary **PR-AUC of 0.9959**, **ROC-AUC of 0.9999**, **100% Precision**, **87.50% Recall** at default threshold 0.50 ($F_1 = 0.9333$, $FPR = 0.00000$), and **95.00% Recall** at operational threshold 0.20 ($F_1 = 0.9744$, $FPR = 0.00000$). The complete platform is deployed with a responsive, high-contrast dark fintech UI developed in Streamlit and Plotly, verified by a 23-test automated regression suite.
+This project presents **MuleNetra AI**, an enterprise-grade hybrid artificial intelligence platform engineered for money mule network detection and autonomous financial crime investigation. The system integrates four complementary detection paradigms: (1) an ensemble of supervised tree algorithms featuring a champion **XGBoost Classifier** with cost-sensitive minority gradient scaling (`scale_pos_weight=108.9`) and a **Random Forest** variance-reduction baseline; (2) a compact deep neural network (**PyTorch RiskNet**) with batch normalization and weighted binary cross-entropy loss to extract continuous latent representations; (3) a **NetworkX** directed graph intelligence engine that models transaction topology, bounded-depth cycle detection, and heuristic mule role classifications (Collectors, Distributors, Intermediaries, Exit Mules); and (4) an empirical **Late-Fusion Hybrid Risk Engine** that calibrates tabular, neural, and topological risk signals into normalized transaction and account risk scores. To fulfill international regulatory explainability mandates, the platform incorporates game-theoretic **SHAP (SHapley Additive exPlanations)** feature attribution alongside a deterministic, evidence-grounded **GenAI Forensic Assistant** capable of synthesizing audit-ready narrative briefs, ReportLab PDF dossiers, and FinCEN-compatible Suspicious Activity Report (SAR) JSON packages without factual hallucination. Evaluated on a strictly isolated chronological out-of-time test set ($N=1,918$, natural laundering prevalence $0.91\%$), the champion XGBoost model achieved an extraordinary **PR-AUC of 0.9959**, **ROC-AUC of 0.9999**, **100% Precision**, **87.50% Recall** at default threshold 0.50 ($F_1 = 0.9333$, $FPR = 0.00000$), and **95.00% Recall** at operational threshold 0.20 ($F_1 = 0.9744$, $FPR = 0.00000$). The complete platform is deployed with a responsive, high-contrast dark fintech UI developed in Streamlit and Plotly, verified by a 23-test automated regression suite.
 
 ---
 
@@ -23,7 +23,7 @@ Financial crime and money laundering impose staggering economic and social costs
 
 The recruitment of money mules has proliferated through social media scams, bogus work-from-home job advertisements, romance scams, and unauthorized account takeovers. Because individual mule transactions frequently resemble legitimate retail activity or are intentionally fragmented beneath mandatory currency transaction thresholds, legacy rule-based monitoring tools deployed across financial institutions are ill-equipped to combat this threat.
 
-**MuleTrace AI** addresses this urgent financial intelligence challenge. By fusing tabular feature engineering, gradient boosting, deep representation learning, topological graph analytics, and explainable generative AI, the platform provides financial intelligence analysts with an integrated, end-to-end investigative workbench capable of unmasking complex laundering structures in near real-time.
+**MuleNetra AI** addresses this urgent financial intelligence challenge. By fusing tabular feature engineering, gradient boosting, deep representation learning, topological graph analytics, and explainable generative AI, the platform provides financial intelligence analysts with an integrated, end-to-end investigative workbench capable of unmasking complex laundering structures in near real-time.
 
 ---
 
@@ -41,7 +41,7 @@ Commercial banking systems currently monitor millions of daily transactions usin
 
 ## 3. Project Objectives
 
-The primary engineering and scientific objectives of the **MuleTrace AI** project are:
+The primary engineering and scientific objectives of the **MuleNetra AI** project are:
 
 1. **Reproducible AML Simulation:** Implement a realistic, high-fidelity synthetic AML transaction generator benchmarked against IBM AMLSim and PaySim distributions, modeling seven distinct money laundering topologies across 500 accounts over a 60-day window, including legitimate high-value business transfers (\$12k–\$65k) to prevent trivial amount-based classification.
 2. **Zero-Leakage Sequential Feature Engineering:** Engineer 22 domain-specific features capturing structuring bands, transaction ratios, balance depletion dynamics, and sequential time-delta velocities strictly ordered by timestamp to eliminate lookahead bias.
@@ -55,7 +55,7 @@ The primary engineering and scientific objectives of the **MuleTrace AI** projec
 
 ## 4. Existing System vs. Proposed System
 
-| Dimension | Legacy Rule-Based TMS | Academic Deep Learning Systems | Proposed MuleTrace AI Platform |
+| Dimension | Legacy Rule-Based TMS | Academic Deep Learning Systems | Proposed MuleNetra AI Platform |
 | :--- | :--- | :--- | :--- |
 | **Detection Basis** | Static IF-THEN threshold rules (e.g., Amount $> \$10,000$). | Monolithic neural network (e.g., GCN or LSTM only). | Hybrid Late Fusion: Tree Ensemble (40%) + Deep Neural Net (30%) + Graph Topology (30%). |
 | **False-Positive Rate** | Extremely high ($90\%–98\%$), causing severe alert fatigue. | Moderate to high; susceptible to threshold sensitivity. | **0.00000 FPR** at operational cutoffs $\ge 0.20$ (Zero false alarms on 1,878 test records). |
@@ -88,7 +88,7 @@ where $\phi_0 = \mathbb{E}[f(z)]$ is the base expected value, and $\phi_i(x)$ is
 
 ## 6. System Architecture & Component Interaction
 
-The architecture of MuleTrace AI is divided into five distinct operational tiers:
+The architecture of MuleNetra AI is divided into five distinct operational tiers:
 
 ```mermaid
 flowchart TD
@@ -147,7 +147,7 @@ flowchart TD
 ## 8. Dataset Description & AML Topologies
 
 ### 8.1 Dataset Parameters
-MuleTrace AI operates on a generated financial transaction dataset benchmarked against the IBM AMLSim transaction agent model:
+MuleNetra AI operates on a generated financial transaction dataset benchmarked against the IBM AMLSim transaction agent model:
 - **Total Transactions:** 9,587 records
 - **Total Monitored Accounts:** 500 unique account nodes
 - **Temporal Duration:** 60 calendar days ($1,440$ operational hours)
@@ -177,12 +177,12 @@ The raw transaction ingestion pipeline enforces:
 - Exclusion of artificial identifiers (`tx_id`, `sender_account`, `receiver_account`, `pattern_type`) from model feature inputs.
 
 ### 9.2 Zero-Leakage Chronological Splitting Protocol
-Random k-fold splitting allows future transactions to inform training on past data. MuleTrace AI enforces a strict temporal barrier:
+Random k-fold splitting allows future transactions to inform training on past data. MuleNetra AI enforces a strict temporal barrier:
 $$\text{Train Set} = \{x_i \mid t(x_i) \le T_{80\%}\}, \quad \text{Test Set} = \{x_j \mid t(x_j) > T_{80\%}\}$$
 $$\max(t_{\text{Train}}) \le \min(t_{\text{Test}})$$
 
 ### 9.3 Remediation of Historical Amnesia in Feature Computation
-In naive implementations, computing features independently on the test split resets cumulative counters (e.g., historical sender count becomes 0 for the first test transaction). MuleTrace AI remediates this by calculating sequential historical features chronologically across the ordered stream prior to splitting, ensuring test transactions possess their genuine preceding historical context without forward lookahead.
+In naive implementations, computing features independently on the test split resets cumulative counters (e.g., historical sender count becomes 0 for the first test transaction). MuleNetra AI remediates this by calculating sequential historical features chronologically across the ordered stream prior to splitting, ensuring test transactions possess their genuine preceding historical context without forward lookahead.
 
 ---
 
@@ -241,7 +241,7 @@ In naive implementations, computing features independently on the test split res
 
 ## 12. Graph Intelligence & NetworkX Topological Engine
 
-MuleTrace AI constructs a directed transaction multigraph $G = (V, E)$, where $V$ represents account entities ($|V|=500$) and $E$ represents directed capital transfers ($|E|=9,032$).
+MuleNetra AI constructs a directed transaction multigraph $G = (V, E)$, where $V$ represents account entities ($|V|=500$) and $E$ represents directed capital transfers ($|E|=9,032$).
 
 ### 12.1 Algorithmic Mule Role Heuristics
 1. **Collector Mule (Fan-In Aggregator):**
@@ -258,7 +258,7 @@ MuleTrace AI constructs a directed transaction multigraph $G = (V, E)$, where $V
    Flags terminal accounts receiving large transfers without forward electronic disbursement.
 
 ### 12.2 Bounded-Depth Circular Cycle Detection
-Traditional cycle detection (Johnson's algorithm) suffers from exponential $O((V+E)(c+1))$ time complexity. MuleTrace AI implements a specialized bounded-depth Depth-First Search (`max_cycle_length=5`):
+Traditional cycle detection (Johnson's algorithm) suffers from exponential $O((V+E)(c+1))$ time complexity. MuleNetra AI implements a specialized bounded-depth Depth-First Search (`max_cycle_length=5`):
 ```python
 def detect_circular_patterns(self, max_cycle_length=5):
     cycles = []
@@ -358,7 +358,7 @@ The application is organized into seven operational modules accessible via a per
 
 ## 19. Conclusion
 
-The **MuleTrace AI** project demonstrates an end-to-end, scientifically validated, and operationally viable artificial intelligence platform for detecting money mule networks and investigating financial crime. By addressing the critical limitations of legacy Transaction Monitoring Systems—specifically high false-positive rates, topological blindness, and black-box opacity—the platform achieves outstanding performance on an unseen chronological test split ($F_1 = 0.9744$, $FPR = 0.00000$, $\text{PR-AUC} = 0.9959$). The fusion of machine learning, deep representation learning, directed graph intelligence, and explainable GenAI provides compliance analysts with an indispensable tool for protecting the integrity of financial systems.
+The **MuleNetra AI** project demonstrates an end-to-end, scientifically validated, and operationally viable artificial intelligence platform for detecting money mule networks and investigating financial crime. By addressing the critical limitations of legacy Transaction Monitoring Systems—specifically high false-positive rates, topological blindness, and black-box opacity—the platform achieves outstanding performance on an unseen chronological test split ($F_1 = 0.9744$, $FPR = 0.00000$, $\text{PR-AUC} = 0.9959$). The fusion of machine learning, deep representation learning, directed graph intelligence, and explainable GenAI provides compliance analysts with an indispensable tool for protecting the integrity of financial systems.
 
 ---
 
@@ -373,4 +373,4 @@ The **MuleTrace AI** project demonstrates an end-to-end, scientifically validate
 7. IBM Research. (2020). "AMLSim: An Agent-Based Simulator for Anti-Money Laundering." https://github.com/IBM/AMLSim.
 
 ---
-*End of Project Report — MuleTrace AI Final Year B.Tech Capstone Project (2026)*
+*End of Project Report — MuleNetra AI Final Year B.Tech Capstone Project (2026)*

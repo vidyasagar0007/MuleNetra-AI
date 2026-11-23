@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Executive Dashboard View
+MuleNetra AI - Executive Dashboard View
 High-level telemetry, key risk indicators (KRIs), temporal volume trends,
 risk distribution, and urgent investigation alerts.
 """

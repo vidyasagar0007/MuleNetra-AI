@@ -1,4 +1,4 @@
-# MuleTrace AI — Model Validation & Research Quality Audit Report
+# MuleNetra AI — Model Validation & Research Quality Audit Report
 **Date of Audit:** 2026-11-21  
 **Lead Auditor:** Senior AI/ML & Financial Crime Systems Architect  
 **Target Repository:** `C:\Users\vidya\.gemini\antigravity\scratch\MuleTrace-AI`  
@@ -8,7 +8,7 @@
 
 ## 1. Executive Summary
 
-An exhaustive independent validation was conducted on the data, machine learning, deep learning, and graph intelligence components of **MuleTrace AI**. 
+An exhaustive independent validation was conducted on the data, machine learning, deep learning, and graph intelligence components of **MuleNetra AI**. 
 
 ### Primary Audit Highlights:
 1. **Zero Data Leakage Confirmed:** Verified that no feature directly or indirectly leaks the target label. Transaction and account IDs are strictly excluded from feature matrices. Preprocessing scalers are fitted exclusively on chronological training splits.

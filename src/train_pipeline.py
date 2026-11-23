@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Complete End-to-End Training & Evaluation Pipeline
+MuleNetra AI - Complete End-to-End Training & Evaluation Pipeline
 Executes data generation, chronological splitting, ML training, PyTorch training,
 NetworkX graph analysis, SHAP explainability, and multi-modal risk scoring.
 Saves all model checkpoints and outputs verified evaluation metrics.
@@ -26,7 +26,7 @@ from src.risk_engine import RiskScoringEngine
 def run_pipeline():
     start_time = time.time()
     print("=" * 80)
-    print("MULETRACE AI - END-TO-END DATA & AI BACKEND TRAINING PIPELINE")
+    print("MULENETRA AI - END-TO-END DATA & AI BACKEND TRAINING PIPELINE")
     print("=" * 80)
 
     # 1. Obtain / Generate Dataset

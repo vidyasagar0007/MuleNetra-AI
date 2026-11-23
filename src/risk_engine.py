@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Hybrid Risk Scoring Engine
+MuleNetra AI - Hybrid Risk Scoring Engine
 Combines Supervised ML (Calibrated XGBoost & Random Forest Blend),
 Deep Learning (PyTorch RiskNet), and Graph Centrality Heuristics into
 unified, calibrated transaction and account-level risk scores.

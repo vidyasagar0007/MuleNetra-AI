@@ -1,8 +1,8 @@
-# MuleTrace AI — UI Visual Quality Assurance Report
+# MuleNetra AI — UI Visual Quality Assurance Report
 
 ## Executive Summary
 
-This report documents the rigorous visual quality assurance (QA) inspection performed on the redesigned **MuleTrace AI — Financial Crime Intelligence Platform** operating live on `http://localhost:8501`.
+This report documents the rigorous visual quality assurance (QA) inspection performed on the redesigned **MuleNetra AI — Financial Crime Intelligence Platform** operating live on `http://localhost:8501`.
 
 The visual inspection verified all seven core surveillance and investigation modules at desktop resolution using automated browser testing and responsive viewport validation.
 

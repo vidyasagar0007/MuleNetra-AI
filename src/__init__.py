@@ -1,3 +1,3 @@
 """
-MuleTrace AI - Core Source Package
+MuleNetra AI - Core Source Package
 """

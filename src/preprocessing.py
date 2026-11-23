@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Preprocessing Module
+MuleNetra AI - Preprocessing Module
 Handles data sanitation, chronological train/test splitting,
 and scaling with zero data leakage.
 """

@@ -1,6 +1,6 @@
-# MuleTrace AI — Comprehensive B.Tech Final-Year Viva Preparation Guide
+# MuleNetra AI — Comprehensive B.Tech Final-Year Viva Preparation Guide
 
-**Project Title:** MuleTrace AI — Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform  
+**Project Title:** MuleNetra AI — Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform  
 **Target Degree:** Bachelor of Technology (B.Tech) in Computer Science / Artificial Intelligence / Data Science  
 **Academic Year:** 2026  
 **Audience:** B.Tech Student, Viva Defense Committee, Internal Guides, and External Examiners  
@@ -12,7 +12,7 @@
 ### 1.1 Project Objective
 Money mule networks represent one of the most critical conduits in financial crime, where recruitment networks (smurfs, unwitting victims, complicit intermediaries) are organized to launder illicit capital through rapid pass-through transfers, structuring, and circular wash trading.
 
-**MuleTrace AI** is an advanced, locally runnable AI-powered financial intelligence and surveillance platform that:
+**MuleNetra AI** is an advanced, locally runnable AI-powered financial intelligence and surveillance platform that:
 1. Detects suspicious transactional anomalies using supervised machine learning and deep learning.
 2. Uncovers multi-hop laundering topologies using directed graph intelligence.
 3. Quantifies risk using a calibrated late-fusion hybrid scoring engine.
@@ -26,7 +26,7 @@ Traditional banking compliance relies on rule-based **Transaction Monitoring Sys
 - **Topological Blindness:** Rule engines cannot detect graph-based money laundering patterns such as circular wash trading ($A \rightarrow B \rightarrow C \rightarrow A$) or fan-in/fan-out consolidation.
 - **Lack of Explainability:** Many black-box deep learning proposals fail regulatory acceptance (FinCEN / EBA) because compliance officers cannot explain why an alert was flagged.
 
-**MuleTrace AI solves this gap** by combining tabular tree ensembles (XGBoost + Random Forest), deep representation learning (PyTorch RiskNet), topological graph metrics (NetworkX), and post-hoc local explainability (SHAP).
+**MuleNetra AI solves this gap** by combining tabular tree ensembles (XGBoost + Random Forest), deep representation learning (PyTorch RiskNet), topological graph metrics (NetworkX), and post-hoc local explainability (SHAP).
 
 ---
 
@@ -190,10 +190,10 @@ $$\text{Risk}_{\text{account}} = 0.35 \cdot \text{PeakTxRisk} + 0.25 \cdot \text
 > **Answer:** 
 > - **Placement:** Introducing illicit cash into the legitimate financial system (e.g., structuring multiple small cash deposits).
 > - **Layering:** Distance the funds from the criminal origin through a complex web of transactions, wire transfers, shell companies, and pass-through mule hops.
-> - **Integration:** Returning the laundered funds to the criminal as seemingly legitimate business revenue or clean investment capital. MuleTrace AI focuses primarily on the **Placement and Layering** stages.
+> - **Integration:** Returning the laundered funds to the criminal as seemingly legitimate business revenue or clean investment capital. MuleNetra AI focuses primarily on the **Placement and Layering** stages.
 
 #### Q3: What is "Structuring" (or "Smurfing")?
-> **Answer:** Structuring is the intentional practice of breaking down a large sum of money into multiple smaller transactions—typically just under regulatory reporting thresholds (e.g., \$8,800 to \$9,950 to evade the FinCEN \$10,000 Currency Transaction Report threshold). MuleTrace AI detects this via features like `is_structuring_range` and sequential transaction count grouping.
+> **Answer:** Structuring is the intentional practice of breaking down a large sum of money into multiple smaller transactions—typically just under regulatory reporting thresholds (e.g., \$8,800 to \$9,950 to evade the FinCEN \$10,000 Currency Transaction Report threshold). MuleNetra AI detects this via features like `is_structuring_range` and sequential transaction count grouping.
 
 ---
 
@@ -267,7 +267,7 @@ $$\text{Risk}_{\text{account}} = 0.35 \cdot \text{PeakTxRisk} + 0.25 \cdot \text
 #### Q18: What is SHAP, and how does it explain an individual transaction's risk score?
 > **Answer:** SHAP (SHapley Additive exPlanations) is a game-theoretic approach that calculates the fair marginal contribution of each feature to the model's output compared to a baseline expectation:
 > $$f(x) = \phi_0 + \sum_{i=1}^M \phi_i(x)$$
-> In MuleTrace AI, TreeSHAP reveals exactly which features pushed an account's risk score up (e.g., $+0.42$ due to `is_structuring_range`, $+0.21$ due to `sender_flow_velocity`) or down (e.g., $-0.12$ due to high historical balance), satisfying regulatory explainability mandates.
+> In MuleNetra AI, TreeSHAP reveals exactly which features pushed an account's risk score up (e.g., $+0.42$ due to `is_structuring_range`, $+0.21$ due to `sender_flow_velocity`) or down (e.g., $-0.12$ due to high historical balance), satisfying regulatory explainability mandates.
 
 #### Q19: How did you ensure that tests do not overwrite saved production models?
 > **Answer:** We added a `save_artifacts: bool = True` parameter to `train_and_evaluate()` in both `MLModelEngine` and `DeepLearningEngine`. In pytest fixtures, `save_artifacts=False` is passed, ensuring that temporary test runs with small 500-row sample datasets never overwrite the production model weights (`xgboost_model.joblib`) or the audited `models/evaluation_summary.json`.
@@ -284,7 +284,7 @@ $$\text{Risk}_{\text{account}} = 0.35 \cdot \text{PeakTxRisk} + 0.25 \cdot \text
 > 4. It strictly segregates "Factual Forensic Observations" from "Investigative Hypotheses".
 
 #### Q21: What regulatory formats does your platform support?
-> **Answer:** MuleTrace AI generates:
+> **Answer:** MuleNetra AI generates:
 > 1. Courtroom-ready ReportLab **PDF Investigation Dossiers** complete with case metadata, account summary tables, triggered rules, and cryptographic verification hash signatures.
 > 2. Standardized machine-readable **FinCEN / FIU Suspicious Activity Report (SAR) JSON packages** containing structured subject entity profiles, violation codes, and audit timestamps.
 
@@ -304,9 +304,9 @@ $$\text{Risk}_{\text{account}} = 0.35 \cdot \text{PeakTxRisk} + 0.25 \cdot \text
 > 2. **In-Memory Graph Scalability:** NetworkX processes the graph in RAM. Scaling to hundreds of millions of bank transactions would require a distributed graph database like Neo4j.
 > 3. **Batch vs Real-Time Streaming:** The prototype processes batch transaction windows. A production banking deployment would require an Apache Kafka / Apache Flink streaming pipeline.
 
-#### Q25: What is the academic integrity disclaimer for MuleTrace AI?
-> **Answer:** MuleTrace AI is an academic research prototype. The dataset is entirely synthetic, and all risk scores and role classifications indicate behavioral anomalies requiring human investigator review—they do not constitute confirmed legal proof of criminal activity. Generated SAR JSON payloads and PDF dossiers are academic simulation artifacts, not officially filed regulatory declarations.
+#### Q25: What is the academic integrity disclaimer for MuleNetra AI?
+> **Answer:** MuleNetra AI is an academic research prototype. The dataset is entirely synthetic, and all risk scores and role classifications indicate behavioral anomalies requiring human investigator review—they do not constitute confirmed legal proof of criminal activity. Generated SAR JSON payloads and PDF dossiers are academic simulation artifacts, not officially filed regulatory declarations.
 
 ---
 
-*End of Viva Preparation Guide — MuleTrace AI Final Year Capstone Project (2026)*
+*End of Viva Preparation Guide — MuleNetra AI Final Year Capstone Project (2026)*

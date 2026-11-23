@@ -1,5 +1,5 @@
 """
-MuleTrace AI - GenAI Investigation Assistant View
+MuleNetra AI - GenAI Investigation Assistant View
 Generates natural language forensic briefs, hypothesis formulations,
 and instant forensic research PDF dossiers.
 """

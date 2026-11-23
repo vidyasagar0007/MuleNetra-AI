@@ -1,7 +1,7 @@
-# MuleTrace AI — College Live Demonstration Test Results
+# MuleNetra AI — College Live Demonstration Test Results
 
 ## Executive Summary
-This document records the results of the complete end-to-end college live demonstration test suite conducted on **MuleTrace AI** at `http://localhost:8501`.
+This document records the results of the complete end-to-end college live demonstration test suite conducted on **MuleNetra AI** at `http://localhost:8501`.
 
 The verification executed the exact 7-step investigation scenario for the primary suspect account **`ACC_0477`** (Collector Mule), validated dataset statistic consistency across all views, and confirmed all interactive controls, graph visualizers, and export functions.
 
@@ -79,7 +79,7 @@ The live demonstration scenario was verified across all seven modules following 
 - **Action:** Generate brief for `ACC_0477` with Deterministic Offline Engine and compile PDF dossier.
 - **Verification:**
   - 4-part structured intelligence brief renders with zero hallucinations.
-  - Clicked `"📄 Compile Official PDF Investigation Dossier"`: ReportLab compiled `MuleTrace_Forensic_Report_ACC_0477_*.pdf` with download button.
+  - Clicked `"📄 Compile Official PDF Investigation Dossier"`: ReportLab compiled `MuleNetra_Forensic_Report_ACC_0477_*.pdf` with download button.
   - Analyst Case Disposition logged `ESCALATED_FOR_SAR` note to SQLite database.
 - **Status:** **PASS**
 

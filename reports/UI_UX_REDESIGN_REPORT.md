@@ -1,8 +1,8 @@
-# MuleTrace AI — Enterprise UI/UX Redesign Documentation
+# MuleNetra AI — Enterprise UI/UX Redesign Documentation
 
 ## Executive Summary
 
-**MuleTrace AI** has undergone an end-to-end design transformation from a functional prototype into an institutional-grade financial intelligence, money mule network detection, and anti-money-laundering (AML) investigation platform.
+**MuleNetra AI** has undergone an end-to-end design transformation from a functional prototype into an institutional-grade financial intelligence, money mule network detection, and anti-money-laundering (AML) investigation platform.
 
 This redesign establishes a cohesive, restrained visual system inspired by tier-1 institutional analytics, cyber threat intelligence, and defense-grade surveillance operations. All backend capabilities, ML/DL models, NetworkX graph intelligence, SHAP explainability calculations, and regulatory export engines were **100% preserved** with zero data fabrication or architectural regressions.
 

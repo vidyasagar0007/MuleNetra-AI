@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Guided Demo & Viva Walkthrough Component
+MuleNetra AI - Guided Demo & Viva Walkthrough Component
 Provides structured, non-obtrusive examiner guidance, talking points,
 and recommended control interactions across all seven surveillance modules.
 """

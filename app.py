@@ -1,6 +1,7 @@
 """
-MuleTrace AI - Main Application Entrypoint
-Hybrid AI-Powered Money Mule Network Detection and Financial Crime Investigation Platform.
+MuleNetra AI - Main Application Entrypoint
+See the Network. Detect the Risk.
+AI-Powered Money Mule & Financial Network Intelligence Platform.
 """
 
 import sys
@@ -82,7 +83,7 @@ def main():
                 svg_b64 = base64.b64encode(f.read()).decode("utf-8")
             st.markdown(
                 f'''<div style="margin-bottom: 0.75rem; padding-top: 0.25rem;">
-                    <img src="data:image/svg+xml;base64,{svg_b64}" style="width: 100%; max-width: 260px; display: block;" alt="MuleTrace AI" />
+                    <img src="data:image/svg+xml;base64,{svg_b64}" style="width: 100%; max-width: 260px; display: block;" alt="MuleNetra AI" />
                 </div>''',
                 unsafe_allow_html=True
             )

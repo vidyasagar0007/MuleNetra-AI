@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Forensic Explainability Engine
+MuleNetra AI - Forensic Explainability Engine
 Generates global SHAP feature importance breakdowns and local, evidence-based
 risk contribution attributions using TreeExplainer and multi-modal waterfall synthesis.
 """

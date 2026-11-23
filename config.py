@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Central Configuration Module
+MuleNetra AI - Central Configuration Module
 Provides directory paths, model hyperparameters, graph heuristics,
 risk scoring weights, and database connections.
 """
@@ -72,7 +72,9 @@ OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
 # App Brand Info
-APP_TITLE = "MuleTrace AI"
-APP_SUBTITLE = "Hybrid AI Money Mule Network Detection & Financial Crime Investigation Platform"
+APP_TITLE = "MuleNetra AI"
+APP_TAGLINE = "See the Network. Detect the Risk."
+APP_SUBTITLE = "Financial Intelligence Platform"
+APP_DESCRIPTION = "AI-Powered Money Mule & Financial Network Intelligence Platform."
 APP_VERSION = "1.0.0"
 ACADEMIC_TAG = "B.Tech Final Year Capstone Project"

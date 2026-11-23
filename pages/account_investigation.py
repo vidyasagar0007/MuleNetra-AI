@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Deep Account Investigation Module
+MuleNetra AI - Deep Account Investigation Module
 Deep-dive forensic interrogation for individual target accounts:
 360-degree profile, counterparty ego-networks, risk waterfall, and transaction audits.
 """

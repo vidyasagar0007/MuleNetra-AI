@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Database Engine & ORM Models
+MuleNetra AI - Database Engine & ORM Models
 Provides SQLite connection via SQLAlchemy for persisting transactions,
 account risk scores, alerts, and forensic investigation cases.
 """

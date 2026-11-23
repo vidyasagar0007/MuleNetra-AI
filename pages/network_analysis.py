@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Money Mule Network Intelligence View
+MuleNetra AI - Money Mule Network Intelligence View
 Interactive directed graph topology, community detection, mule role heuristics,
 and circular wash-trading loop analysis.
 """

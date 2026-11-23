@@ -1,5 +1,5 @@
 """
-MuleTrace AI - AI Detection Center View
+MuleNetra AI - AI Detection Center View
 Live multi-model inference, probability distributions, risk tier filtering,
 operational threshold sensitivity controls, and transaction-level forensic inspection.
 """

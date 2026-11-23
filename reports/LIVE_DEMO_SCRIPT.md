@@ -1,4 +1,4 @@
-# MuleTrace AI — Live Demonstration Script & Viva Defense Guide
+# MuleNetra AI — Live Demonstration Script & Viva Defense Guide
 
 **Target Presentation Time:** 7 to 10 Minutes  
 **Audience:** External Examiner, Project Review Committee, Academic Evaluators  
@@ -30,7 +30,7 @@
 3. Point your cursor to the top banner and the six KPI cards across the screen.
 
 #### What to Say to the Examiners:
-> "Good morning, respected examiners. Welcome to **MuleTrace AI**, an enterprise-grade artificial intelligence platform developed for money mule detection and financial crime surveillance.
+> "Good morning, respected examiners. Welcome to **MuleNetra AI**, an enterprise-grade artificial intelligence platform developed for money mule detection and financial crime surveillance.
 > 
 > As you can see on the **Executive Dashboard**, our platform provides financial intelligence analysts with instant visibility across monitored transactions. 
 > 
@@ -53,7 +53,7 @@
 #### What to Say to the Examiners:
 > "Let us now navigate to the **AI Multi-Model Detection Center**. 
 > 
-> Unlike traditional monolithic models, MuleTrace AI displays calibrated predictions from our tree ensemble—XGBoost and Random Forest—alongside our PyTorch Deep RiskNet and the final fused hybrid score.
+> Unlike traditional monolithic models, MuleNetra AI displays calibrated predictions from our tree ensemble—XGBoost and Random Forest—alongside our PyTorch Deep RiskNet and the final fused hybrid score.
 > 
 > One of our core innovations is this **Operational Alert Threshold Sensitivity slider**. In real banking operations, compliance teams have varying alert capacities. 
 > - At the standard cutoff of **0.50**, our model achieves **100% precision with zero false alarms**, flagging 35 frauds.
@@ -74,7 +74,7 @@
 #### What to Say to the Examiners:
 > "Now, let us examine the **Mule Network Intelligence** module. 
 > 
-> Traditional transaction monitoring fails because it cannot see network topology. Using NetworkX, MuleTrace AI constructs a directed multigraph of all 500 accounts and 9,032 transaction edges.
+> Traditional transaction monitoring fails because it cannot see network topology. Using NetworkX, MuleNetra AI constructs a directed multigraph of all 500 accounts and 9,032 transaction edges.
 > 
 > Our topological heuristic engine has automatically categorized accounts into specific mule roles:
 > - **49 Collectors:** Nodes exhibiting high in-degree ($\ge 4$) and low out-degree ($\le 2$), consolidating small satellite deposits.
@@ -126,7 +126,7 @@
 #### What to Say to the Examiners:
 > "Now, let us proceed to the **GenAI Forensic Investigation Assistant**.
 > 
-> A common flaw in AI systems is LLM hallucination—inventing evidence that does not exist. MuleTrace AI prevents hallucinations by enforcing a **strictly grounded, retrieval-constrained reasoning architecture**.
+> A common flaw in AI systems is LLM hallucination—inventing evidence that does not exist. MuleNetra AI prevents hallucinations by enforcing a **strictly grounded, retrieval-constrained reasoning architecture**.
 > 
 > The assistant extracts verified database records, SHAP feature weights, and graph centralities to assemble a 4-part forensic intelligence brief:
 > 1. An **Executive Summary** synthesizing the incident.
@@ -179,7 +179,7 @@
 > 
 > The platform is verified with a 23-test automated regression suite passing with zero warnings.
 > 
-> This concludes our demonstration of MuleTrace AI. Thank you, and I am now ready for your questions."
+> This concludes our demonstration of MuleNetra AI. Thank you, and I am now ready for your questions."
 
 ---
 
@@ -187,10 +187,10 @@
 
 | Scenario / Issue | Instant Recovery Plan | What to Explain to Examiners |
 | :--- | :--- | :--- |
-| **No Internet Connection** | MuleTrace AI is 100% locally runnable. All models (XGBoost, PyTorch, NetworkX, SQLite) run entirely on offline CPU. In the GenAI Assistant, keep provider set to **"Deterministic Offline Engine"**. | *"Our platform was explicitly engineered to be cloud-independent and operational in secure, air-gapped financial intelligence enclaves."* |
+| **No Internet Connection** | MuleNetra AI is 100% locally runnable. All models (XGBoost, PyTorch, NetworkX, SQLite) run entirely on offline CPU. In the GenAI Assistant, keep provider set to **"Deterministic Offline Engine"**. | *"Our platform was explicitly engineered to be cloud-independent and operational in secure, air-gapped financial intelligence enclaves."* |
 | **Accidental Page Reload / Disconnect** | Simply refresh the browser tab (`F5`). All intelligence is cached via `@st.cache_resource` in memory and persists in SQLite. | *"Streamlit session caching preserves the initialized risk engine in memory, allowing instantaneous state recovery."* |
 | **Examiner Asks for a Random Account** | In the Account Investigation module, use the search box to type any ID (e.g., `ACC_0099` for Intermediary layering, `ACC_0001` for benign retail). | *"The system indexes all 500 accounts dynamically; we can interrogate any entity instantly across the graph."* |
 | **PDF Dossier Viewer Missing** | The compiled PDF is automatically stored on disk in `reports/` and can be opened in Adobe Acrobat or Chrome directly from the file explorer. | *"PDFs are compiled locally into the reports directory with simulated SHA-256 chain-of-custody hashes."* |
 
 ---
-*End of Live Demonstration Script — MuleTrace AI B.Tech Capstone Defense (2026)*
+*End of Live Demonstration Script — MuleNetra AI B.Tech Capstone Defense (2026)*

@@ -1,5 +1,5 @@
 """
-MuleTrace AI - Report Generator & Export Module
+MuleNetra AI - Report Generator & Export Module
 Generates professional forensic investigation PDF dossiers via ReportLab,
 alongside CSV data exports for compliance records.
 """
@@ -54,7 +54,7 @@ class ReportGenerator:
         Builds a comprehensive forensic PDF investigation research dossier.
         """
         timestamp_str = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
-        report_filename = f"MuleTrace_Forensic_Report_{account_id}_{timestamp_str}.pdf"
+        report_filename = f"MuleNetra_Forensic_Report_{account_id}_{timestamp_str}.pdf"
         output_path = self.reports_dir / report_filename
 
         doc = SimpleDocTemplate(
@@ -112,7 +112,7 @@ class ReportGenerator:
         story = []
 
         # 1. Header Banner
-        story.append(Paragraph("<b>MULETRACE AI</b> — FINANCIAL INTELLIGENCE UNIT", subtitle_style))
+        story.append(Paragraph("<b>MULENETRA AI</b> — FINANCIAL INTELLIGENCE UNIT", subtitle_style))
         story.append(Spacer(1, 4))
         story.append(Paragraph("FORENSIC INVESTIGATION DOSSIER", title_style))
         story.append(Paragraph(f"CONFIDENTIAL COMPLIANCE AUDIT • CASE REF: FIU-{account_id}-{datetime.utcnow().strftime('%Y%m')}", subtitle_style))
