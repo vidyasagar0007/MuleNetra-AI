@@ -9,6 +9,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
+from src.demo_guide import render_demo_guide
 
 def render_detection(context: dict):
     """Render the AI Detection Center workspace."""
@@ -39,6 +40,9 @@ def render_detection(context: dict):
             </div>
         </div>
     """, unsafe_allow_html=True)
+
+    # Optional Collapsible Guided Demo Walkthrough
+    render_demo_guide("detection")
 
     # 1. Advanced Filter Toolbar
     st.markdown("""

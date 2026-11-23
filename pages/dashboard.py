@@ -9,6 +9,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
+from src.demo_guide import render_demo_guide
 
 def render_dashboard(context: dict):
     """Render the executive financial crime intelligence command center."""
@@ -40,6 +41,9 @@ def render_dashboard(context: dict):
             </div>
         </div>
     """, unsafe_allow_html=True)
+
+    # Optional Collapsible Guided Demo Walkthrough
+    render_demo_guide("dashboard")
 
     # 1. KPI Cards: 2 Rows x 3 Columns (Spacious, Aligned, Distinct Color Bands)
     total_tx = len(scored_tx)
@@ -118,13 +122,13 @@ def render_dashboard(context: dict):
     chart_col1, chart_col2 = st.columns([1, 2])
 
     with chart_col1:
-        st.markdown("""
+        st.markdown(f"""
             <div class="mt-card">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
                     <h4 style="margin: 0; font-size: 0.95rem; color: #F8FAFC; font-family: 'Manrope', sans-serif;">
                         Account Risk Distribution
                     </h4>
-                    <span style="font-size: 0.72rem; color: #94A3B8;">1,000 Nodes</span>
+                    <span style="font-size: 0.72rem; color: #94A3B8;">{total_accounts:,} Nodes</span>
                 </div>
         """, unsafe_allow_html=True)
         

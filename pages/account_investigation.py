@@ -11,6 +11,7 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from src.explainability import ExplainabilityEngine
+from src.demo_guide import render_demo_guide
 
 def render_account_investigation(context: dict):
     """Render the Deep Account Forensic Investigation view."""
@@ -42,6 +43,9 @@ def render_account_investigation(context: dict):
             </div>
         </div>
     """, unsafe_allow_html=True)
+
+    # Optional Collapsible Guided Demo Walkthrough
+    render_demo_guide("account_investigation")
 
     # 1. Target Account Selector
     all_account_ids = profiles["account_id"].tolist()

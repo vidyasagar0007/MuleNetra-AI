@@ -10,6 +10,7 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from src.explainability import ExplainabilityEngine
+from src.demo_guide import render_demo_guide
 
 def render_model_performance(context: dict):
     """Render the Model Performance & Evaluation view."""
@@ -40,6 +41,9 @@ def render_model_performance(context: dict):
             </div>
         </div>
     """, unsafe_allow_html=True)
+
+    # Optional Collapsible Guided Demo Walkthrough
+    render_demo_guide("model_performance")
 
     # 1. Methodology Notice Box
     st.markdown("""

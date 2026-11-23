@@ -12,6 +12,7 @@ from src.genai_assistant import GenAIAssistant
 from src.report_generator import ReportGenerator
 from src.database import get_db, InvestigationCase
 from datetime import datetime
+from src.demo_guide import render_demo_guide
 
 def render_ai_assistant(context: dict):
     """Render the GenAI Investigation Assistant module."""
@@ -43,6 +44,9 @@ def render_ai_assistant(context: dict):
             </div>
         </div>
     """, unsafe_allow_html=True)
+
+    # Optional Collapsible Guided Demo Walkthrough
+    render_demo_guide("ai_assistant")
 
     # 1. Target Account & LLM Provider Setup
     st.markdown("""

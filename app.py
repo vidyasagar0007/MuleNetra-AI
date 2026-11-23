@@ -68,6 +68,11 @@ def get_initialized_intelligence():
 
 # Main Application Controller
 def main():
+    # Load Intelligence Context upfront
+    context = get_initialized_intelligence()
+    n_tx = len(context["scored_tx"])
+    n_nodes = len(context["profiles"])
+
     # Sidebar Branding & Navigation
     with st.sidebar:
         # Logo SVG rendering with base64 encoding to prevent markdown parser leaks
@@ -110,7 +115,18 @@ def main():
             label_visibility="visible"
         )
 
-        st.markdown("<div style='height: 15px;'></div>", unsafe_allow_html=True)
+        st.markdown("<div style='height: 12px;'></div>", unsafe_allow_html=True)
+
+        # Guided Defense Mode Toggle
+        show_guide = st.toggle(
+            "🎓 Guided Defense Mode",
+            value=st.session_state.get("show_demo_guide", True),
+            key="toggle_demo_guide",
+            help="Displays examiner talking points and step-by-step guidance for each module."
+        )
+        st.session_state["show_demo_guide"] = show_guide
+
+        st.markdown("<div style='height: 12px;'></div>", unsafe_allow_html=True)
 
         # System Status & Telemetry Card
         st.markdown("""
@@ -132,13 +148,13 @@ def main():
 
         st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
 
-        # Dataset & Environment Telemetry Card
-        st.markdown("""
+        # Dataset & Environment Telemetry Card (Dynamic, grounded statistics)
+        st.markdown(f"""
             <div style="background-color: #0D1423; border: 1px solid #23334B; border-radius: 6px; padding: 0.75rem 0.85rem; font-size: 0.72rem; color: #64748B;">
                 <div style="color: #94A3B8; font-weight: 600; margin-bottom: 0.25rem;">ENVIRONMENT TELEMETRY</div>
                 <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #94A3B8;">
-                    • 10,000 Synthetic Txns<br/>
-                    • 1,000 Banking Node Graph<br/>
+                    • {n_tx:,} Synthetic Txns<br/>
+                    • {n_nodes:,} Banking Node Graph<br/>
                     • SQLite Local DB Persistence
                 </div>
             </div>
@@ -159,9 +175,6 @@ def main():
                 For Forensic Research & Educational Defense
             </div>
         """, unsafe_allow_html=True)
-
-    # Load Intelligence Context
-    context = get_initialized_intelligence()
 
     # Route Page cleanly based on substring
     if "Executive Dashboard" in selected_page:

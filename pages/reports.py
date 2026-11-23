@@ -9,6 +9,7 @@ from pathlib import Path
 import pandas as pd
 from config import REPORTS_DIR
 from src.report_generator import ReportGenerator
+from src.demo_guide import render_demo_guide
 
 def render_reports(context: dict):
     """Render the Reports and Exports center."""
@@ -40,6 +41,9 @@ def render_reports(context: dict):
             </div>
         </div>
     """, unsafe_allow_html=True)
+
+    # Optional Collapsible Guided Demo Walkthrough
+    render_demo_guide("reports")
 
     # 1. Bulk CSV Downloads Row
     st.markdown("<h4 style='color: #F8FAFC; font-size: 1rem; margin-bottom: 0.75rem; font-family: \"Manrope\", sans-serif;'>Surveillance Telemetry CSV Exports</h4>", unsafe_allow_html=True)
